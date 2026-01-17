@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Afyacode Ventures | Kenya Health Entrepreneurship</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            /* Primary Brand Colors */
+            --primary-color: #2a9d8f;
+            --primary-dark: #21867a;
+            --primary-light: #4bb5a7;
+            --secondary-color: #264653;
+            --accent-color: #e76f51;
+            
+            /* Neutral Colors */
+            --dark-color: #1a1a2e;
+            --dark-light: #2d3047;
+            --text-dark: #264653;
+            --text-light: #457b9d;
+            --text-lighter: #8d99ae;
+            --light-color: #f8f9fa;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+            --border-color: #dee2e6;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 30px;
+            --radius-round: 50%;
+        }
+
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(42, 157, 143, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-round);
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+            display: block;
+            font-size: 0.6rem;
+            font-weight: 600;
+            margin-top: -5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--dark-light);
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: var(--transition-normal);
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(42, 157, 143, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* ===== FLOATING BUTTONS ===== */
+        .float-whatsapp,
+        .float-chatbot {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            border: none;
+            bottom: 30px;
+        }
+
+        .float-whatsapp {
+            background: #25D366;
+            color: white;
+            left: 30px;
+        }
+
+        .float-chatbot {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            right: 30px;
+        }
+
+        .float-whatsapp:hover,
+        .float-chatbot:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ===== SCROLL TO TOP BUTTON ===== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border: none;
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            z-index: 998;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(42, 157, 143, 0.4);
+        }
+
+        .scroll-to-top i {
+            font-size: 1.3rem;
+        }
+
+        /* ===== GALLERY FILTER SECTION ===== */
+        .gallery-filter {
+            padding: 100px 0 60px;
+            background: var(--white);
+            margin-top: 70px;
+        }
+
+        .filter-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .filter-header h2 span {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            background: var(--light-color);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .filter-tab:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .filter-tab.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(42, 157, 143, 0.2);
+        }
+
+        .filter-tab i {
+            font-size: 1rem;
+        }
+
+        /* ===== GALLERY GRID SECTION ===== */
+        .gallery-grid-section {
+            padding: 60px 0 80px;
+            background: var(--light-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        .gallery-item {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover .gallery-image img {
+            transform: scale(1.05);
+        }
+
+        .gallery-content {
+            padding: 20px;
+        }
+
+        .gallery-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+            line-height: 1.3;
+        }
+
+        .gallery-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* ===== VIDEO GALLERY SECTION ===== */
+        .video-gallery {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .video-gallery .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .section-header h2 span {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .video-item {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+        }
+
+        .video-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-thumbnail {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .video-item:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .video-item:hover .play-button {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-content {
+            padding: 25px;
+        }
+
+        .video-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .video-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== GALLERY CTA SECTION ===== */
+        .gallery-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--dark-color), var(--dark-light));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .cta-container p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== LIGHTBOX MODAL ===== */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .lightbox-image {
+            max-height: 70vh;
+            overflow: hidden;
+        }
+
+        .lightbox-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .lightbox-info {
+            padding: 30px;
+            background: var(--white);
+        }
+
+        .lightbox-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .lightbox-info p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-color);
+            cursor: pointer;
+            z-index: 10000;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: rotate(90deg);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo .logo-image {
+            width: 40px;
+            height: 40px;
+        }
+
+        .footer-logo .logo-text {
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .footer-logo .logo-text span {
+            font-size: 0.5rem;
+            margin-top: -3px;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all var(--transition-normal);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .contact-details i {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .contact-details a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-legal a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .video-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 0;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 20px;
+                transition: left var(--transition-normal);
+                box-shadow: var(--shadow-lg);
+                z-index: 999;
+                overflow-y: auto;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-menu a {
+                display: block;
+                padding: 15px 0;
+                width: 100%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .cta-button {
+                display: none;
+            }
+            
+            .gallery-filter {
+                padding: 80px 0 50px;
+            }
+            
+            .filter-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .float-whatsapp,
+            .float-chatbot {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+            }
+            
+            .float-whatsapp {
+                left: 20px;
+            }
+            
+            .float-chatbot {
+                right: 20px;
+            }
+
+            .scroll-to-top {
+                bottom: 90px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .cta-container h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .filter-header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .filter-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .filter-tab {
+                flex-shrink: 0;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-container h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .float-whatsapp,
+            .float-chatbot {
+                width: 45px;
+                height: 45px;
+                bottom: 15px;
+            }
+
+            .scroll-to-top {
+                bottom: 80px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .scroll-to-top i {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .gallery-grid {
+                gap: 15px;
+            }
+            
+            .gallery-image {
+                height: 180px;
+            }
+            
+            .gallery-content {
+                padding: 15px;
+            }
+            
+            .float-whatsapp,
+            .float-chatbot {
+                width: 40px;
+                height: 40px;
+                bottom: 10px;
+            }
+        }
+
+        /* ===== LOAD MORE BUTTON ===== */
+        .load-more {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .load-more-btn {
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .load-more-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="./assets/img/logo.jpeg" alt="Afyacode Ventures Logo" class="logo-image">
+                <div class="logo-text">
+                    AFYACODE <span>VENTURES</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="audience.html">Who We Serve</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="contact.html" class="cta-button">Get Started</a>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/254737535147" class="float-whatsapp" target="_blank" 
+       aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+
+    <!-- Floating Chatbot Button -->
+    <button class="float-chatbot" id="openChatbot" aria-label="Chat with us">
+        <i class="fas fa-comments fa-2x"></i>
+    </button>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- GALLERY FILTER SECTION -->
+        <section class="gallery-filter">
+            <div class="container">
+                <div class="filter-header">
+                    <h2>Gallery <span>Stories</span></h2>
+                </div>
+                
+                <div class="filter-tabs" id="filterTabs">
+                    <button class="filter-tab active" data-filter="all">
+                        <i class="fas fa-layer-group"></i> All
+                    </button>
+                    <button class="filter-tab" data-filter="success-stories">
+                        <i class="fas fa-star"></i> Success Stories
+                    </button>
+                    <button class="filter-tab" data-filter="events">
+                        <i class="fas fa-calendar-alt"></i> Events
+                    </button>
+                    <button class="filter-tab" data-filter="training">
+                        <i class="fas fa-graduation-cap"></i> Training
+                    </button>
+                    <button class="filter-tab" data-filter="workshops">
+                        <i class="fas fa-users"></i> Workshops
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY GRID SECTION -->
+        <section class="gallery-grid-section">
+            <div class="container">
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery items will be loaded here -->
+                </div>
+                
+                <div class="load-more">
+                    <button class="load-more-btn" id="loadMoreBtn">
+                        <i class="fas fa-plus"></i> Load More
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO GALLERY SECTION -->
+        <section class="video-gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Success <span>Stories</span> in Video</h2>
+                    <p>Watch inspiring stories of health entrepreneurs who transformed their practices with our support</p>
+                </div>
+                
+                <div class="video-grid">
+                    <!-- Video Item 1 -->
+                    <div class="video-item">
+                        <div class="video-thumbnail" data-video-id="dQw4w9WgXcQ">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Healthcare entrepreneurship in Kenya">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3>Dr. Amina's Clinic Transformation</h3>
+                            <p>From solo practice to multi-specialty clinic serving Nairobi community.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Item 2 -->
+                    <div class="video-item">
+                        <div class="video-thumbnail" data-video-id="9bZkp7q19f0">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Pharmacy digital transformation Kenya">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3>Pharmacy Goes Digital</h3>
+                            <p>Nakuru pharmacy achieves 300% growth through digital transformation.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Item 3 -->
+                    <div class="video-item">
+                        <div class="video-thumbnail" data-video-id="JGwWNGJdvx8">
+                            <img src="https://images.unsplash.com/photo-1631524944764-d9e51831d4db?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Wellness center Mombasa Kenya">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3>Building a Wellness Center</h3>
+                            <p>James Mensah's journey as a wellness entrepreneur in Mombasa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY CTA SECTION -->
+        <section class="gallery-cta">
+            <div class="container">
+                <div class="cta-container">
+                    <h2>Be Part of Our Success Stories</h2>
+                    <p>Your healthcare transformation journey could be featured here. Let's work together to build your success story.</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">
+                            <i class="fas fa-calendar-check"></i> Start Your Journey
+                        </a>
+                        <a href="services.html" class="btn btn-secondary">
+                            <i class="fas fa-play-circle"></i> Explore Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-content">
+            <div class="lightbox-image">
+                <img id="lightboxImg" src="" alt="">
+            </div>
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDescription"></p>
+            </div>
+            <button class="lightbox-close" id="lightboxClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- VIDEO MODAL -->
+    <div class="lightbox-modal" id="videoModal">
+        <div class="lightbox-content">
+            <div class="lightbox-image">
+                <iframe id="videoPlayer" width="100%" height="500" src="" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="lightbox-info">
+                <h3 id="videoTitle"></h3>
+                <p id="videoDescription"></p>
+            </div>
+            <button class="lightbox-close" id="videoClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="./assets/img/logo.jpeg" alt="Afyacode Ventures Logo" class="logo-image">
+                        <div class="logo-text">
+                            AFYACODE <span>VENTURES</span>
+                        </div>
+                    </a>
+                    <p class="footer-description">
+                        Empowering health entrepreneurs across Kenya with strategic support, digital transformation, and capacity-building programs.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="audience.html">Who We Serve</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#business-systems">Business Systems</a></li>
+                        <li><a href="services.html#digital-transformation">Digital Transformation</a></li>
+                        <li><a href="services.html#business-growth">Business Growth</a></li>
+                        <li><a href="services.html#capacity-building">Mentorship</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:hello@afyacode.com">hello@afyacode.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+254737535147">+254 737 535 147</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nairobi, Kenya</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; <span id="currentYear"></span> Afyacode Ventures. All rights reserved.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+                const icon = hamburger.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.padding = '10px 0';
+                    header.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.padding = '15px 0';
+                    header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
+                }
+            });
+
+            // Scroll to Top Button
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Gallery Data
+            const galleryData = [
+                {
+                    id: 1,
+                    category: 'success-stories',
+                    title: 'Dr. Amina\'s Clinic Transformation',
+                    description: 'From solo practice to multi-specialty clinic serving Nairobi community.',
+                    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                },
+                {
+                    id: 2,
+                    category: 'events',
+                    title: 'Health Summit 2024',
+                    description: 'Annual gathering of healthcare entrepreneurs across Kenya.',
+                    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                },
+                {
+                    id: 3,
+                    category: 'training',
+                    title: 'Digital Health Workshop',
+                    description: 'Intensive workshop on implementing digital solutions in practices.',
+                    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                },
+                {
+                    id: 4,
+                    category: 'workshops',
+                    title: 'Business Systems Masterclass',
+                    description: 'Hands-on training on creating efficient business systems.',
+                    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                },
+                {
+                    id: 5,
+                    category: 'success-stories',
+                    title: 'Pharmacy Digital Growth',
+                    description: 'Nakuru pharmacy achieves 300% growth through digital transformation.',
+                    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                },
+                {
+                    id: 6,
+                    category: 'events',
+                    title: 'Women in Healthcare',
+                    description: 'Networking event celebrating women leading healthcare innovation.',
+                    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                },
+                {
+                    id: 7,
+                    category: 'training',
+                    title: 'Financial Management Training',
+                    description: 'Mastering financial planning for healthcare businesses.',
+                    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                },
+                {
+                    id: 8,
+                    category: 'success-stories',
+                    title: 'Wellness Center Expansion',
+                    description: 'Physiotherapy practice expands to comprehensive wellness services.',
+                    image: 'https://images.unsplash.com/photo-1631524944764-d9e51831d4db?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                },
+                {
+                    id: 9,
+                    category: 'workshops',
+                    title: 'Brand Building Workshop',
+                    description: 'Creating compelling healthcare brands that build trust.',
+                    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                },
+                {
+                    id: 10,
+                    category: 'events',
+                    title: 'Health Innovation Awards',
+                    description: 'Celebrating innovative healthcare entrepreneurs in Kenya.',
+                    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                },
+                {
+                    id: 11,
+                    category: 'training',
+                    title: 'Operations Excellence',
+                    description: 'Optimizing operations for improved patient care and efficiency.',
+                    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                },
+                {
+                    id: 12,
+                    category: 'success-stories',
+                    title: 'Clinic Network Growth',
+                    description: 'Multi-clinic expansion across Nairobi and surrounding areas.',
+                    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                }
+            ];
+
+            // Gallery Configuration
+            let currentFilter = 'all';
+            let currentPage = 1;
+            const itemsPerPage = 6;
+            let filteredGallery = [...galleryData];
+
+            // Initialize Gallery
+            function initializeGallery() {
+                renderGallery();
+                setupFilterTabs();
+                setupLightbox();
+                setupVideoModal();
+            }
+
+            // Render Gallery Items
+            function renderGallery() {
+                const galleryGrid = document.getElementById('galleryGrid');
+                galleryGrid.innerHTML = '';
+                
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const itemsToShow = filteredGallery.slice(0, endIndex);
+                
+                itemsToShow.forEach((item, index) => {
+                    const delay = (index % 6) * 0.1;
+                    
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.style.animationDelay = `${delay}s`;
+                    
+                    galleryItem.innerHTML = `
+                        <div class="gallery-image">
+                            <img src="${item.image}" alt="${item.title}" loading="lazy">
+                        </div>
+                        <div class="gallery-content">
+                            <h3>${item.title}</h3>
+                            <p>${item.description}</p>
+                        </div>
+                    `;
+                    
+                    galleryGrid.appendChild(galleryItem);
+                    
+                    // Add click to open lightbox
+                    galleryItem.addEventListener('click', () => openLightbox(item));
+                });
+                
+                // Update load more button
+                const loadMoreBtn = document.getElementById('loadMoreBtn');
+                if (endIndex >= filteredGallery.length) {
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'inline-flex';
+                }
+            }
+
+            // Setup Filter Tabs
+            function setupFilterTabs() {
+                const filterTabs = document.getElementById('filterTabs');
+                filterTabs.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('filter-tab') || e.target.closest('.filter-tab')) {
+                        const tab = e.target.classList.contains('filter-tab') ? e.target : e.target.closest('.filter-tab');
+                        const filter = tab.getAttribute('data-filter');
+                        
+                        // Update active tab
+                        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        
+                        // Apply filter
+                        currentFilter = filter;
+                        currentPage = 1;
+                        
+                        if (filter === 'all') {
+                            filteredGallery = [...galleryData];
+                        } else {
+                            filteredGallery = galleryData.filter(item => item.category === filter);
+                        }
+                        
+                        renderGallery();
+                    }
+                });
+            }
+
+            // Setup Lightbox
+            function setupLightbox() {
+                const lightboxModal = document.getElementById('lightboxModal');
+                const lightboxImg = document.getElementById('lightboxImg');
+                const lightboxTitle = document.getElementById('lightboxTitle');
+                const lightboxDescription = document.getElementById('lightboxDescription');
+                const lightboxClose = document.getElementById('lightboxClose');
+                
+                window.openLightbox = function(item) {
+                    lightboxImg.src = item.image;
+                    lightboxTitle.textContent = item.title;
+                    lightboxDescription.textContent = item.description;
+                    lightboxModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                };
+
+                function closeLightbox() {
+                    lightboxModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+
+                lightboxClose.addEventListener('click', closeLightbox);
+                
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+                        closeLightbox();
+                    }
+                });
+                
+                lightboxModal.addEventListener('click', (e) => {
+                    if (e.target === lightboxModal) {
+                        closeLightbox();
+                    }
+                });
+            }
+
+            // Setup Video Modal
+            function setupVideoModal() {
+                const videoModal = document.getElementById('videoModal');
+                const videoPlayer = document.getElementById('videoPlayer');
+                const videoTitle = document.getElementById('videoTitle');
+                const videoDescription = document.getElementById('videoDescription');
+                const videoClose = document.getElementById('videoClose');
+                
+                const videoItems = [
+                    {
+                        id: 'dQw4w9WgXcQ',
+                        title: 'Dr. Amina\'s Clinic Transformation',
+                        description: 'From solo practice to multi-specialty clinic serving Nairobi community.'
+                    },
+                    {
+                        id: '9bZkp7q19f0',
+                        title: 'Pharmacy Goes Digital',
+                        description: 'Nakuru pharmacy achieves 300% growth through digital transformation.'
+                    },
+                    {
+                        id: 'JGwWNGJdvx8',
+                        title: 'Building a Wellness Center',
+                        description: 'James Mensah\'s journey as a wellness entrepreneur in Mombasa.'
+                    }
+                ];
+
+                window.openVideoModal = function(videoId) {
+                    const video = videoItems.find(v => v.id === videoId);
+                    if (video) {
+                        videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                        videoTitle.textContent = video.title;
+                        videoDescription.textContent = video.description;
+                        videoModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                };
+
+                function closeVideoModal() {
+                    videoPlayer.src = '';
+                    videoModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+
+                videoClose.addEventListener('click', closeVideoModal);
+                
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                        closeVideoModal();
+                    }
+                });
+                
+                videoModal.addEventListener('click', (e) => {
+                    if (e.target === videoModal) {
+                        closeVideoModal();
+                    }
+                });
+
+                document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+                    thumbnail.addEventListener('click', () => {
+                        const videoId = thumbnail.getAttribute('data-video-id');
+                        openVideoModal(videoId);
+                    });
+                });
+            }
+
+            // Load More Button
+            document.getElementById('loadMoreBtn').addEventListener('click', function() {
+                currentPage++;
+                renderGallery();
+            });
+
+            // Initialize everything
+            initializeGallery();
+        });
+    </script>
+</body>
+</html>
