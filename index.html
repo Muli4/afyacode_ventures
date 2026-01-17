@@ -3,19 +3,1439 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afyacode Ventures - Bridging the Gap in Health Entrepreneurship</title>
+    <title>Afyacode Ventures - Bridging the Gap in Health Entrepreneurship in Kenya</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    <!-- Link to external CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+
+    
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            /* Primary Brand Colors */
+            --primary-color: #2a9d8f;
+            --primary-dark: #21867a;
+            --primary-light: #4bb5a7;
+            --secondary-color: #2a9d8f;
+            --accent-color: #21867a;
+            
+            /* Neutral Colors */
+            --dark-color: #1a1a2e;
+            --dark-light: #2d3047;
+            --text-dark: #264653;
+            --text-light: #457b9d;
+            --text-lighter: #8d99ae;
+            --light-color: #f8f9fa;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+            --border-color: #dee2e6;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 30px;
+            --radius-round: 50%;
+        }
+
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(42, 157, 143, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-round);
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+            display: block;
+            font-size: 0.6rem;
+            font-weight: 600;
+            margin-top: -5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--dark-light);
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: var(--transition-normal);
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(42, 157, 143, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* ===== FLOATING BUTTONS ===== */
+        .float-whatsapp,
+        .float-chatbot {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            border: none;
+            bottom: 30px;
+        }
+
+        .float-whatsapp {
+            background: #25D366;
+            color: white;
+            left: 30px;
+        }
+
+        .float-chatbot {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            right: 30px;
+        }
+
+        .float-whatsapp:hover,
+        .float-chatbot:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ===== FLOATING BUTTON TOOLTIPS ===== */
+        .float-whatsapp::after,
+        .float-chatbot::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            pointer-events: none;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+
+        .float-whatsapp::before,
+        .float-chatbot::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-2px);
+            border: 6px solid transparent;
+            border-top-color: var(--dark-color);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            pointer-events: none;
+        }
+
+        .float-whatsapp:hover::after,
+        .float-chatbot:hover::after,
+        .float-whatsapp:hover::before,
+        .float-chatbot:hover::before {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-15px);
+        }
+
+        /* ===== SCROLL TO TOP BUTTON ===== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border: none;
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            z-index: 998;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(42, 157, 143, 0.4);
+        }
+
+        .scroll-to-top i {
+            font-size: 1.3rem;
+        }
+
+        /* ===== CHATBOT MODAL ===== */
+        .chat-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .chat-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .chat-modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .chat-close:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .chat-modal-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .chat-modal-content p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .chat-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .chat-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .chat-form input,
+        .chat-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius-sm);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+        }
+
+        .chat-form input:focus,
+        .chat-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .chat-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .chat-form .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* ===== HERO SECTION - UPDATED ===== */
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.08) 0%, rgba(233, 196, 106, 0.08) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(42, 157, 143, 0.15) 0%, rgba(42, 157, 143, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '🇰🇪';
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            font-size: 100px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kenya-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-md);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 450px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(42, 157, 143, 0.2), rgba(233, 196, 106, 0.2));
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== SERVICES PREVIEW ===== */
+        .services-preview {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-color));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .section-title .highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-normal);
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(42, 157, 143, 0.2);
+        }
+
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2.2rem;
+            box-shadow: 0 8px 25px rgba(42, 157, 143, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition-normal);
+        }
+
+        .service-link:hover {
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+
+        /* ===== WHO WE SERVE ===== */
+        .who-we-serve {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.05), rgba(233, 196, 106, 0.05));
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .audience-card {
+            background: var(--white);
+            padding: 35px 30px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all var(--transition-normal);
+            border: 2px solid transparent;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 30px rgba(42, 157, 143, 0.25);
+        }
+
+        .audience-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.1), rgba(233, 196, 106, 0.1));
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 2rem;
+            border: 3px solid var(--primary-light);
+        }
+
+        .audience-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .audience-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .audience-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.1), rgba(233, 196, 106, 0.1));
+            color: var(--text-dark);
+            padding: 6px 14px;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(42, 157, 143, 0.2);
+        }
+
+        .audience-cta {
+            background: linear-gradient(135deg, var(--dark-color), var(--dark-light));
+            padding: 50px;
+            border-radius: var(--radius-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            margin-top: 50px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .audience-cta::before {
+            content: '🇰🇪';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 80px;
+            opacity: 0.1;
+        }
+
+        .cta-content h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-content p {
+            opacity: 0.9;
+            max-width: 600px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-choose-us {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .why-card {
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.05), rgba(233, 196, 106, 0.05));
+            padding: 35px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            transition: all var(--transition-normal);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .why-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .why-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        .why-content {
+            flex: 1;
+        }
+
+        .why-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .why-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(42, 157, 143, 0.3);
+        }
+
+        .why-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .stat-box {
+            background: var(--white);
+            padding: 35px 30px;
+            border-radius: var(--radius-xl);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-normal);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px rgba(42, 157, 143, 0.2);
+        }
+
+        .stat-box h4 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-box p {
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark-color), var(--dark-light));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: '🇰🇪';
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            font-size: 150px;
+            opacity: 0.03;
+        }
+
+        .testimonials .section-label {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonials .section-title {
+            color: white;
+            background: linear-gradient(135deg, white, var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .testimonials .section-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .slider-container {
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+        }
+
+        .testimonial-slide {
+            display: none;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .quote-icon {
+            color: var(--primary-light);
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 35px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .testimonial-author {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .author-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.95rem;
+        }
+
+        .author-rating {
+            color: #ffd700;
+            font-size: 1.1rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 35px;
+        }
+
+        .slider-prev,
+        .slider-next {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: var(--radius-round);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .slider-prev:hover,
+        .slider-next:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .dot.active,
+        .dot:hover {
+            background: var(--primary-light);
+            transform: scale(1.3);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo .logo-image {
+            width: 40px;
+            height: 40px;
+        }
+
+        .footer-logo .logo-text {
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .footer-logo .logo-text span {
+            font-size: 0.5rem;
+            margin-top: -3px;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all var(--transition-normal);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .contact-details i {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .contact-details a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-legal a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-image {
+                order: 2;
+                max-width: 600px;
+                margin: 0 auto;
+                height: 400px;
+            }
+            
+            .hero-content {
+                order: 1;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .kenya-badge {
+                justify-content: center;
+            }
+            
+            .audience-cta {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 0;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 20px;
+                transition: left var(--transition-normal);
+                box-shadow: var(--shadow-lg);
+                z-index: 999;
+                overflow-y: auto;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-menu a {
+                display: block;
+                padding: 15px 0;
+                width: 100%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .cta-button {
+                display: none;
+            }
+            
+            .hero {
+                padding: 130px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-image {
+                height: 350px;
+            }
+            
+            .testimonial-card {
+                padding: 35px 25px;
+            }
+
+            .why-card {
+                padding: 25px;
+            }
+
+            .audience-cta {
+                padding: 35px 25px;
+            }
+            
+            .float-whatsapp,
+            .float-chatbot {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+            }
+            
+            .float-whatsapp {
+                left: 20px;
+            }
+            
+            .float-chatbot {
+                right: 20px;
+            }
+
+            .scroll-to-top {
+                bottom: 90px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .services-grid,
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-image {
+                height: 300px;
+            }
+            
+            .why-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 20px;
+            }
+            
+            .audience-cta {
+                padding: 30px 20px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .float-whatsapp,
+            .float-chatbot {
+                width: 45px;
+                height: 45px;
+                bottom: 15px;
+            }
+            
+            .float-whatsapp {
+                left: 15px;
+            }
+            
+            .float-chatbot {
+                right: 15px;
+            }
+
+            .scroll-to-top {
+                bottom: 80px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .scroll-to-top i {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-image {
+                height: 250px;
+            }
+
+            .testimonials::before {
+                font-size: 100px;
+            }
+
+            .audience-cta::before {
+                font-size: 60px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- HEADER SECTION -->
     <header>
         <div class="container header-container">
-            <!-- Logo with Image -->
             <a href="index.html" class="logo">
                 <img src="./assets/img/logo.jpeg" alt="Afyacode Ventures Logo" class="logo-image">
                 <div class="logo-text">
@@ -23,35 +1443,74 @@
                 </div>
             </a>
 
-            <!-- Navigation Menu -->
             <nav>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="audience.html">Who We Serve</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
 
-            <!-- CTA Button -->
             <a href="contact.html" class="cta-button">Get Started</a>
 
-            <!-- Hamburger Menu (Mobile) -->
-            <button class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
 
-    <!-- Main content will go here -->
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/254737535147" class="float-whatsapp" target="_blank" 
+       aria-label="Chat on WhatsApp" data-tooltip="Chat on WhatsApp">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+
+    <!-- Floating Chatbot Button -->
+    <button class="float-chatbot" id="openChatbot" 
+            aria-label="Chat with us" data-tooltip="Chat with us">
+        <i class="fas fa-comments fa-2x"></i>
+    </button>
+
+    <!-- Chat Modal -->
+    <div id="chatModal" class="chat-modal">
+        <div class="chat-modal-content">
+            <span class="chat-close" id="closeChat">&times;</span>
+            <h3>How Can We Help?</h3>
+            <p>Send us your question and we'll get back to you shortly.</p>
+            <form class="chat-form" id="chatForm">
+                <div class="form-group">
+                    <label for="chatName">Your Name</label>
+                    <input type="text" id="chatName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="chatEmail">Your Email</label>
+                    <input type="email" id="chatEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="chatMessage">Your Question</label>
+                    <textarea id="chatMessage" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+
     <main>
         <!-- HERO SECTION -->
         <section class="hero">
             <div class="container hero-container">
                 <div class="hero-content">
+                    <div class="kenya-badge">
+                        <span>🇰🇪</span>
+                        <span>Proudly Serving Kenya</span>
+                    </div>
                     <h1 class="hero-title">Bridging the Gap in <span class="highlight">Health Entrepreneurship</span></h1>
-                    <p class="hero-subtitle">Empowering health entrepreneurs across Africa with strategic support, digital transformation, and capacity-building programs that help you establish, systemize, and scale your venture.</p>
+                    <p class="hero-subtitle">Empowering health entrepreneurs across Kenya with strategic support, digital transformation, and capacity-building programs that help you establish, systemize, and scale your venture.</p>
                     
                     <div class="hero-buttons">
                         <a href="contact.html" class="btn btn-primary">
@@ -61,26 +1520,11 @@
                             <i class="fas fa-play-circle"></i> Explore Our Services
                         </a>
                     </div>
-
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <h3>500+</h3>
-                            <p>Healthpreneurs Empowered</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>25+</h3>
-                            <p>African Countries Reached</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>98%</h3>
-                            <p>Client Satisfaction</p>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="hero-image">
-                    <!-- Professional healthcare/digital transformation image from Unsplash -->
-                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="African healthcare professionals using digital technology">
+                    <!-- Kenya-based healthcare professional image -->
+                    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Healthcare professionals in Kenya">
                     <div class="image-overlay"></div>
                 </div>
             </div>
@@ -90,24 +1534,25 @@
         <section class="services-preview">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">How We Support <span>Health Entrepreneurs</span></h2>
-                    <p class="section-subtitle">Comprehensive solutions to help you build, systemize, and scale your healthcare venture.</p>
+                    <span class="section-label">
+                        <i class="fas fa-briefcase"></i> Our Services
+                    </span>
+                    <h2 class="section-title">How We Support <span class="highlight">Kenya's</span> Health Entrepreneurs</h2>
+                    <p class="section-subtitle">Comprehensive solutions designed for Kenya's healthcare landscape to help you build, systemize, and scale your venture.</p>
                 </div>
 
                 <div class="services-grid">
-                    <!-- Service 1 -->
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-cogs"></i>
                         </div>
                         <h3>Business Systems & Operations</h3>
-                        <p>Practical business systems, workflow optimization, and standard operating procedures tailored for healthcare.</p>
+                        <p>Practical business systems, workflow optimization, and standard operating procedures tailored for healthcare in Kenya.</p>
                         <a href="services.html#business-systems" class="service-link">
                             Learn More <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
 
-                    <!-- Service 2 -->
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-laptop-medical"></i>
@@ -119,22 +1564,20 @@
                         </a>
                     </div>
 
-                    <!-- Service 3 -->
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-rocket"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3>Business Growth Support</h3>
-                        <p>Pricing strategies, profitability optimization, and patient acquisition strategies to scale your practice.</p>
+                        <h3>Business Support Services</h3>
+                        <p>Comprehensive business development including strategy, financial management, operations, and investor readiness.</p>
                         <a href="services.html#business-growth" class="service-link">
                             Learn More <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
 
-                    <!-- Service 4 -->
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-graduation-cap"></i>
+                            <i class="fas fa-users"></i>
                         </div>
                         <h3>Capacity Building & Mentorship</h3>
                         <p>Coaching, entrepreneurial development, and business mentorship programs for healthcare professionals.</p>
@@ -144,7 +1587,7 @@
                     </div>
                 </div>
 
-                <div class="services-cta">
+                <div style="text-align: center; margin-top: 40px;">
                     <a href="services.html" class="btn btn-primary">
                         <i class="fas fa-list-alt"></i> View All Services
                     </a>
@@ -156,25 +1599,26 @@
         <section class="who-we-serve">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">We Empower <span>Healthcare Visionaries</span></h2>
-                    <p class="section-subtitle">Supporting diverse health entrepreneurs who are transforming healthcare delivery across Africa.</p>
+                    <span class="section-label">
+                        <i class="fas fa-users-cog"></i> Who We Serve
+                    </span>
+                    <h2 class="section-title">We Empower <span class="highlight">Kenya's</span> Healthcare Visionaries</h2>
+                    <p class="section-subtitle">Supporting diverse health entrepreneurs transforming healthcare delivery across Kenya.</p>
                 </div>
 
                 <div class="audience-grid">
-                    <!-- Audience 1 -->
                     <div class="audience-card">
                         <div class="audience-icon">
                             <i class="fas fa-user-md"></i>
                         </div>
                         <h3>Healthcare Providers</h3>
-                        <p>Nurses, clinical officers, and medical doctors starting or growing private practices.</p>
+                        <p>Nurses, clinical officers, and medical doctors starting or growing private practices in Kenya.</p>
                         <div class="audience-tags">
                             <span class="tag">Private Practice</span>
                             <span class="tag">Clinical Excellence</span>
                         </div>
                     </div>
 
-                    <!-- Audience 2 -->
                     <div class="audience-card">
                         <div class="audience-icon">
                             <i class="fas fa-heartbeat"></i>
@@ -187,20 +1631,18 @@
                         </div>
                     </div>
 
-                    <!-- Audience 3 -->
                     <div class="audience-card">
                         <div class="audience-icon">
                             <i class="fas fa-pills"></i>
                         </div>
                         <h3>Pharmacists & Pharmacy Owners</h3>
-                        <p>Modernizing pharmacy operations and expanding pharmaceutical services.</p>
+                        <p>Modernizing pharmacy operations and expanding pharmaceutical services in Kenya.</p>
                         <div class="audience-tags">
                             <span class="tag">Retail Pharmacy</span>
                             <span class="tag">Supply Chain</span>
                         </div>
                     </div>
 
-                    <!-- Audience 4 -->
                     <div class="audience-card">
                         <div class="audience-icon">
                             <i class="fas fa-flask"></i>
@@ -213,20 +1655,18 @@
                         </div>
                     </div>
 
-                    <!-- Audience 5 -->
                     <div class="audience-card">
                         <div class="audience-icon">
                             <i class="fas fa-apple-alt"></i>
                         </div>
                         <h3>Nutritionists & Dietitians</h3>
-                        <p>Building evidence-based nutrition practices and wellness programs.</p>
+                        <p>Building evidence-based nutrition practices and wellness programs in Kenya.</p>
                         <div class="audience-tags">
                             <span class="tag">Nutrition</span>
                             <span class="tag">Dietary Health</span>
                         </div>
                     </div>
 
-                    <!-- Audience 6 -->
                     <div class="audience-card">
                         <div class="audience-icon">
                             <i class="fas fa-hands-helping"></i>
@@ -239,20 +1679,18 @@
                         </div>
                     </div>
 
-                    <!-- Audience 7 -->
                     <div class="audience-card">
                         <div class="audience-icon">
                             <i class="fas fa-digital-tachograph"></i>
                         </div>
                         <h3>Digital Healthpreneurs</h3>
-                        <p>Health entrepreneurs seeking digital transformation and tech integration.</p>
+                        <p>Health entrepreneurs seeking digital transformation and tech integration in Kenya.</p>
                         <div class="audience-tags">
                             <span class="tag">Digital Health</span>
                             <span class="tag">Health Tech</span>
                         </div>
                     </div>
 
-                    <!-- Audience 8 -->
                     <div class="audience-card">
                         <div class="audience-icon">
                             <i class="fas fa-lightbulb"></i>
@@ -268,8 +1706,8 @@
 
                 <div class="audience-cta">
                     <div class="cta-content">
-                        <h3>Are You a Health Entrepreneur?</h3>
-                        <p>Join hundreds of healthcare professionals who have transformed their practices with Afyacode.</p>
+                        <h3>Are You a Healthpreneur in Kenya?</h3>
+                        <p>Build a sustainable, profitable healthcare business with the right strategy, systems, and support—driving operational excellence, steady growth, and long-term success across Kenya.</p>
                     </div>
                     <a href="contact.html" class="btn btn-primary">
                         <i class="fas fa-handshake"></i> Partner With Us
@@ -282,80 +1720,77 @@
         <section class="why-choose-us">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Why Choose <span>Afyacode Ventures</span></h2>
-                    <p class="section-subtitle">What sets us apart in empowering health entrepreneurs across Africa.</p>
+                    <span class="section-label">
+                        <i class="fas fa-award"></i> Why Choose Us
+                    </span>
+                    <h2 class="section-title">Why Choose <span class="highlight">Afyacode Ventures</span></h2>
+                    <p class="section-subtitle">Built by Kenyan healthcare entrepreneurs, for Kenyan healthcare entrepreneurs. We understand the realities of running a health business in Kenya because we've lived them.</p>
                 </div>
 
                 <div class="why-grid">
-                    <!-- Reason 1 -->
                     <div class="why-card">
                         <div class="why-number">01</div>
                         <div class="why-content">
-                            <h3>Healthcare Industry Expertise</h3>
-                            <p>Deep understanding of Africa's healthcare entrepreneurship landscape with proven strategies that work in local contexts.</p>
+                            <h3>Built by Kenyan Healthpreneurs</h3>
+                            <p>Founded and run by Kenyan healthcare entrepreneurs who understand the unique challenges firsthand.</p>
+                        </div>
+                        <div class="why-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                    </div>
+
+                    <div class="why-card">
+                        <div class="why-number">02</div>
+                        <div class="why-content">
+                            <h3>Practical Healthcare Focus</h3>
+                            <p>Healthcare-specific business training and tools that address real operational and financial challenges in Kenya.</p>
                         </div>
                         <div class="why-icon">
                             <i class="fas fa-stethoscope"></i>
                         </div>
                     </div>
 
-                    <!-- Reason 2 -->
                     <div class="why-card">
-                        <div class="why-number">02</div>
+                        <div class="why-number">03</div>
                         <div class="why-content">
-                            <h3>Holistic Support</h3>
-                            <p>End-to-end support from idea to launch and scale. We're with you at every stage of your entrepreneurial journey.</p>
+                            <h3>Holistic Business Support</h3>
+                            <p>End-to-end support from operations and finance to patient experience and digital transformation.</p>
                         </div>
                         <div class="why-icon">
                             <i class="fas fa-hands"></i>
                         </div>
                     </div>
 
-                    <!-- Reason 3 -->
-                    <div class="why-card">
-                        <div class="why-number">03</div>
-                        <div class="why-content">
-                            <h3>Patient-Centered Systems</h3>
-                            <p>Systems designed to improve both patient experience and your practice's profitability simultaneously.</p>
-                        </div>
-                        <div class="why-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                    </div>
-
-                    <!-- Reason 4 -->
                     <div class="why-card">
                         <div class="why-number">04</div>
                         <div class="why-content">
-                            <h3>Accessible Mentorship</h3>
-                            <p>Personalized guidance and support for healthpreneurs at all levels, from beginners to established practitioners.</p>
+                            <h3>Mentorship from Experience</h3>
+                            <p>Guidance from entrepreneurs who've navigated the same challenges you face in Kenya's healthcare market.</p>
                         </div>
                         <div class="why-icon">
                             <i class="fas fa-users"></i>
                         </div>
                     </div>
 
-                    <!-- Reason 5 -->
                     <div class="why-card">
                         <div class="why-number">05</div>
                         <div class="why-content">
-                            <h3>Community Impact Focus</h3>
-                            <p>Strong commitment to community upliftment and measurable health outcomes beyond just business success.</p>
+                            <h3>Results-Driven Approach</h3>
+                            <p>Focused on measurable outcomes: stronger operations and better financial performance.</p>
                         </div>
                         <div class="why-icon">
-                            <i class="fas fa-globe-africa"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
                     </div>
 
-                    <!-- Reason 6 -->
                     <div class="why-card">
                         <div class="why-number">06</div>
                         <div class="why-content">
-                            <h3>Practical & Hands-On</h3>
-                            <p>Our programs are practical, tailored to real challenges, and focused on immediate implementation and results.</p>
+                            <h3>Digital Transformation Tools</h3>
+                            <p>Technology solutions designed for healthcare businesses in Kenya to streamline operations.</p>
                         </div>
                         <div class="why-icon">
-                            <i class="fas fa-tools"></i>
+                            <i class="fas fa-laptop-medical"></i>
                         </div>
                     </div>
                 </div>
@@ -366,16 +1801,16 @@
                         <p>Client Satisfaction Rate</p>
                     </div>
                     <div class="stat-box">
-                        <h4>300+</h4>
-                        <p>Projects Completed</p>
+                        <h4>15+</h4>
+                        <p>Healthcare Ventures Supported</p>
                     </div>
                     <div class="stat-box">
-                        <h4>25+</h4>
-                        <p>African Countries</p>
+                        <h4>100%</h4>
+                        <p>Kenya Focused</p>
                     </div>
                     <div class="stat-box">
                         <h4>5+</h4>
-                        <p>Years of Excellence</p>
+                        <p>Years of Experience</p>
                     </div>
                 </div>
             </div>
@@ -385,121 +1820,109 @@
         <section class="testimonials">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">What Our <span>Clients Say</span></h2>
-                    <p class="section-subtitle">Hear from health entrepreneurs who have transformed their practices with Afyacode.</p>
+                    <span class="section-label">
+                        <i class="fas fa-star"></i> Client Stories
+                    </span>
+                    <h2 class="section-title">What Our Clients Say</h2>
+                    <p class="section-subtitle">Hear from health entrepreneurs who have transformed their practices with Afyacode across Kenya.</p>
                 </div>
 
                 <div class="testimonial-slider">
-                    <!-- Testimonial Slides -->
                     <div class="slider-container">
-                        <!-- Slide 1 -->
                         <div class="testimonial-slide active">
                             <div class="testimonial-card">
-                                <div class="testimonial-content">
-                                    <div class="quote-icon">
-                                        <i class="fas fa-quote-left"></i>
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p class="testimonial-text">"Afyacode transformed my clinic from a chaotic practice to a well-oiled machine. Their digital systems increased our patient capacity by 40% while reducing administrative work by half."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h4>Dr. Amina K. Njoroge</h4>
+                                        <p>Private Medical Practice, Nairobi</p>
                                     </div>
-                                    <p class="testimonial-text">"Afyacode transformed my clinic from a chaotic practice to a well-oiled machine. Their digital systems increased our patient capacity by 40% while reducing administrative work by half."</p>
-                                    <div class="testimonial-author">
-                                        <div class="author-info">
-                                            <h4>Dr. Amina K. Njoroge</h4>
-                                            <p>Private Medical Practice, Nairobi</p>
-                                        </div>
-                                        <div class="author-rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Slide 2 -->
                         <div class="testimonial-slide">
                             <div class="testimonial-card">
-                                <div class="testimonial-content">
-                                    <div class="quote-icon">
-                                        <i class="fas fa-quote-left"></i>
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p class="testimonial-text">"As a physiotherapist starting my wellness center in Mombasa, Afyacode's business mentorship was invaluable. They helped me create pricing packages that doubled my revenue in 3 months."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h4>James O. Mensah</h4>
+                                        <p>PhysioWell Center, Mombasa</p>
                                     </div>
-                                    <p class="testimonial-text">"As a physiotherapist starting my wellness center, Afyacode's business mentorship was invaluable. They helped me create pricing packages that doubled my revenue in 3 months."</p>
-                                    <div class="testimonial-author">
-                                        <div class="author-info">
-                                            <h4>James O. Mensah</h4>
-                                            <p>PhysioWell Center, Accra</p>
-                                        </div>
-                                        <div class="author-rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                        </div>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Slide 3 -->
                         <div class="testimonial-slide">
                             <div class="testimonial-card">
-                                <div class="testimonial-content">
-                                    <div class="quote-icon">
-                                        <i class="fas fa-quote-left"></i>
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p class="testimonial-text">"Their digital transformation program helped our pharmacy in Nakuru go completely paperless. We now serve 50% more customers with the same staff, thanks to automated processes."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h4>Sarah Chukwu</h4>
+                                        <p>MediCare Pharmacy, Nakuru</p>
                                     </div>
-                                    <p class="testimonial-text">"Their digital transformation program helped our pharmacy go completely paperless. We now serve 50% more customers with the same staff, thanks to automated processes."</p>
-                                    <div class="testimonial-author">
-                                        <div class="author-info">
-                                            <h4>Sarah Chukwu</h4>
-                                            <p>MediCare Pharmacy, Lagos</p>
-                                        </div>
-                                        <div class="author-rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Slide 4 -->
                         <div class="testimonial-slide">
                             <div class="testimonial-card">
-                                <div class="testimonial-content">
-                                    <div class="quote-icon">
-                                        <i class="fas fa-quote-left"></i>
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p class="testimonial-text">"The capacity building program gave me the confidence to expand from a solo practice in Kisumu to a team of 5. Afyacode's SOPs made scaling smooth and systematic."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h4>Michael T. Banda</h4>
+                                        <p>Diagnostic Lab, Kisumu</p>
                                     </div>
-                                    <p class="testimonial-text">"The capacity building program gave me the confidence to expand from a solo practice to a team of 5. Afyacode's SOPs made scaling smooth and systematic."</p>
-                                    <div class="testimonial-author">
-                                        <div class="author-info">
-                                            <h4>Michael T. Banda</h4>
-                                            <p>Diagnostic Lab, Lusaka</p>
-                                        </div>
-                                        <div class="author-rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slider Controls -->
                     <div class="slider-controls">
-                        <button class="slider-prev">
+                        <button class="slider-prev" aria-label="Previous testimonial">
                             <i class="fas fa-chevron-left"></i>
                         </button>
                         
-                        <!-- Slider Dots -->
                         <div class="slider-dots">
                             <span class="dot active" data-slide="0"></span>
                             <span class="dot" data-slide="1"></span>
@@ -507,30 +1930,33 @@
                             <span class="dot" data-slide="3"></span>
                         </div>
                         
-                        <button class="slider-next">
+                        <button class="slider-next" aria-label="Next testimonial">
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- FOOTER SECTION -->
     <footer class="footer">
         <div class="container">
-            <!-- Main Footer Content -->
             <div class="footer-main">
-                <!-- Company Info -->
-                <div class="footer-col company-info">
+                <div class="footer-col">
                     <a href="index.html" class="footer-logo">
                         <img src="./assets/img/logo.jpeg" alt="Afyacode Ventures Logo" class="logo-image">
                         <div class="logo-text">
-                            AFYACODE<span>VENTURES</span>
+                            AFYACODE <span>VENTURES</span>
                         </div>
                     </a>
                     <p class="footer-description">
-                        Empowering health entrepreneurs across Africa with strategic support, digital transformation, and capacity-building programs.
+                        Empowering health entrepreneurs across Kenya with strategic support, digital transformation, and capacity-building programs.
                     </p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Facebook">
@@ -545,13 +1971,9 @@
                         <a href="#" class="social-link" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
                     </div>
                 </div>
 
-                <!-- Quick Links -->
                 <div class="footer-col">
                     <h3 class="footer-title">Quick Links</h3>
                     <ul class="footer-links">
@@ -559,24 +1981,22 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Our Services</a></li>
                         <li><a href="audience.html">Who We Serve</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
 
-                <!-- Services -->
                 <div class="footer-col">
                     <h3 class="footer-title">Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="services.html#business-systems">Business Systems & Operations</a></li>
+                        <li><a href="services.html#business-systems">Business Systems</a></li>
                         <li><a href="services.html#digital-transformation">Digital Transformation</a></li>
-                        <li><a href="services.html#business-growth">Business Growth Support</a></li>
-                        <li><a href="services.html#capacity-building">Capacity Building & Mentorship</a></li>
-                        <li><a href="services.html#branding">Branding & Digital Setup</a></li>
+                        <li><a href="services.html#business-growth">Business Growth</a></li>
+                        <li><a href="services.html#capacity-building">Mentorship</a></li>
                     </ul>
                 </div>
 
-                <!-- Contact Info -->
-                <div class="footer-col contact-info">
+                <div class="footer-col">
                     <h3 class="footer-title">Contact Us</h3>
                     <ul class="contact-details">
                         <li>
@@ -585,17 +2005,16 @@
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
-                            <a href="tel:+254712345678">+254 712 345 678</a>
+                            <a href="tel:+254737535147">+254 737 535 147</a>
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Nairobi, Kenya<br>Across Africa</span>
+                            <span>Nairobi, Kenya</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div class="copyright">
                     <p>&copy; <span id="currentYear"></span> Afyacode Ventures. All rights reserved.</p>
@@ -603,13 +2022,171 @@
                 <div class="footer-legal">
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
-                    <a href="cookies.html">Cookie Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Link to external JavaScript -->
-    <script src="./assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+                const icon = hamburger.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Testimonial Slider
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.slider-prev');
+            const nextBtn = document.querySelector('.slider-next');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                currentSlide = (index + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => showSlide(index));
+            });
+            
+            prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+            nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+            
+            // Auto slide every 5 seconds
+            setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+            
+            // Current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.padding = '10px 0';
+                    header.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.padding = '15px 0';
+                    header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
+                }
+            });
+            
+            // Chatbot Modal Functionality
+            const openChatbotBtn = document.getElementById('openChatbot');
+            const closeChatBtn = document.getElementById('closeChat');
+            const chatModal = document.getElementById('chatModal');
+            const chatForm = document.getElementById('chatForm');
+            
+            if (openChatbotBtn) {
+                openChatbotBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    chatModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            
+            if (closeChatBtn) {
+                closeChatBtn.addEventListener('click', function() {
+                    chatModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            
+            if (chatModal) {
+                chatModal.addEventListener('click', function(e) {
+                    if (e.target === chatModal) {
+                        chatModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && chatModal.classList.contains('active')) {
+                    chatModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            if (chatForm) {
+                chatForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('chatName').value;
+                    const email = document.getElementById('chatEmail').value;
+                    const message = document.getElementById('chatMessage').value;
+                    
+                    if (!name || !email || !message) {
+                        alert('Please fill in all fields.');
+                        return;
+                    }
+                    
+                    alert(`Thank you, ${name}! Your message has been sent. We'll get back to you shortly at ${email}.`);
+                    
+                    chatForm.reset();
+                    chatModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            // Scroll to Top Button
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            // Show/hide scroll to top button
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
+            });
+            
+            // Scroll to top when button is clicked
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
