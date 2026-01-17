@@ -3,16 +3,1351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Afyacode Ventures | Empowering Health Entrepreneurs</title>
+    <title>Our Services - Afyacode Ventures | Empowering Health Entrepreneurs in Kenya</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    <!-- Link to existing CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+:root {
+    /* Primary Brand Colors */
+    --primary-color: #2a9d8f;
+    --primary-dark: #21867a;
+    --primary-light: #4bb5a7;
+    --secondary-color: #2a9d8f;
+    --accent-color: #21867a;
+    
+    /* Neutral Colors */
+    --dark-color: #1a1a2e;
+    --dark-light: #2d3047;
+    --text-dark: #264653;
+    --text-light: #457b9d;
+    --text-lighter: #8d99ae;
+    --light-color: #f8f9fa;
+    --light-gray: #e9ecef;
+    --white: #ffffff;
+    --border-color: #dee2e6;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 30px;
+    --radius-round: 50%;
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--light-color);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    border: none;
+    outline: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(42, 157, 143, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--dark-color);
+    border: 2px solid var(--border-color);
+}
+
+.btn-outline:hover {
+    background: var(--light-gray);
+    border-color: var(--dark-color);
+    transform: translateY(-3px);
+}
+
+/* ===== HEADER ===== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-round);
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+}
+
+.logo-text span {
+    color: var(--primary-color);
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    margin-top: -5px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: var(--dark-light);
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    transition: var(--transition-normal);
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--primary-color);
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+.cta-button {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(42, 157, 143, 0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* ===== FLOATING BUTTONS ===== */
+.float-whatsapp,
+.float-chatbot {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-round);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    border: none;
+    bottom: 30px;
+}
+
+.float-whatsapp {
+    background: #25D366;
+    color: white;
+    left: 30px;
+}
+
+.float-chatbot {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    right: 30px;
+}
+
+.float-whatsapp:hover,
+.float-chatbot:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ===== FLOATING BUTTON TOOLTIPS ===== */
+.float-whatsapp::after,
+.float-chatbot::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background-color: var(--dark-color);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.float-whatsapp::before,
+.float-chatbot::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-2px);
+    border: 6px solid transparent;
+    border-top-color: var(--dark-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+    pointer-events: none;
+}
+
+.float-whatsapp:hover::after,
+.float-chatbot:hover::after,
+.float-whatsapp:hover::before,
+.float-chatbot:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-15px);
+}
+
+/* ===== CHATBOT MODAL ===== */
+.chat-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.chat-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.chat-modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.chat-close:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.chat-modal-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.chat-modal-content p {
+    color: var(--text-light);
+    margin-bottom: 25px;
+}
+
+.chat-form .form-group {
+    margin-bottom: 20px;
+}
+
+.chat-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.chat-form input,
+.chat-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--light-gray);
+    border-radius: var(--radius-sm);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+}
+
+.chat-form input:focus,
+.chat-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.chat-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.chat-form .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* ===== SERVICES HERO SECTION - UPDATED ===== */
+.services-hero {
+    padding: 150px 0 80px;
+    background: linear-gradient(135deg, rgba(42, 157, 143, 0.08) 0%, rgba(233, 196, 106, 0.08) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.services-hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(42, 157, 143, 0.15) 0%, rgba(42, 157, 143, 0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.services-hero::after {
+    content: '🇰🇪';
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    font-size: 100px;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.services-hero .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 1000px;
+}
+
+.breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    background: var(--white);
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-sm);
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb i {
+    font-size: 0.7rem;
+}
+
+.kenya-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-md);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.services-hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    color: var(--dark-color);
+}
+
+.services-hero-title .kenya-highlight {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    display: inline-block;
+}
+
+.services-hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.services-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 50px auto 40px;
+    max-width: 600px;
+}
+
+.hero-stat {
+    background: var(--white);
+    padding: 30px 20px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    border-top: 4px solid var(--primary-color);
+}
+
+.hero-stat:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hero-stat h3 {
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+}
+
+.hero-stat p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.services-hero-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===== SECTION STYLES ===== */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary-color));
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.section-title .highlight {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ===== SERVICE CATEGORIES SECTION ===== */
+.service-categories {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+/* ===== SERVICE CARDS - UPDATED ===== */
+.service-card-detailed {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 50px;
+    border-top: 5px solid var(--primary-color);
+    transition: all var(--transition-normal);
+    overflow: hidden;
+}
+
+.service-card-detailed:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(42, 157, 143, 0.2);
+}
+
+.service-card-header {
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(42, 157, 143, 0.05), rgba(233, 196, 106, 0.05));
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.service-icon-large {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    box-shadow: 0 8px 25px rgba(42, 157, 143, 0.3);
+}
+
+.service-title-content {
+    flex: 1;
+}
+
+.service-title-content h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.service-tagline {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.service-card-body {
+    padding: 40px;
+}
+
+.service-description-full {
+    margin-bottom: 35px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.service-description-full p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-dark);
+}
+
+.service-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 35px;
+}
+
+.detail-column h4 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.detail-column h4 i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.service-audience {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-audience li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-dark);
+    font-size: 1rem;
+    padding: 10px;
+    background: rgba(42, 157, 143, 0.03);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+}
+
+.service-audience li:hover {
+    background: rgba(42, 157, 143, 0.08);
+    transform: translateX(5px);
+}
+
+.service-audience li i {
+    color: var(--primary-color);
+    margin-top: 3px;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+}
+
+.deliverables-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.deliverable-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    background: linear-gradient(135deg, rgba(42, 157, 143, 0.05), rgba(233, 196, 106, 0.05));
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition-fast);
+}
+
+.deliverable-item:hover {
+    background: linear-gradient(135deg, rgba(42, 157, 143, 0.1), rgba(233, 196, 106, 0.1));
+    transform: translateX(8px);
+}
+
+.deliverable-item i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    width: 30px;
+    text-align: center;
+}
+
+.deliverable-item span {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.service-benefits-box {
+    background: linear-gradient(135deg, rgba(42, 157, 143, 0.08), rgba(233, 196, 106, 0.08));
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(42, 157, 143, 0.1);
+}
+
+.service-benefits-box h4 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.service-benefits-box h4 i {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+.benefits-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.benefit-tag {
+    background: var(--white);
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-light);
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+.benefit-tag:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.service-card-footer {
+    padding: 30px 40px;
+    background: var(--light-color);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.timeline-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.timeline-info i {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.timeline-info strong {
+    color: var(--dark-color);
+    font-weight: 700;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* ===== SCROLL TO TOP BUTTON ===== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    border: none;
+    border-radius: var(--radius-round);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+    z-index: 998;
+    box-shadow: var(--shadow-lg);
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(42, 157, 143, 0.4);
+}
+
+.scroll-to-top i {
+    font-size: 1.3rem;
+}
+
+/* ===== SERVICES CTA SECTION - UPDATED ===== */
+.services-cta-final {
+    background: linear-gradient(135deg, var(--dark-color), var(--dark-light));
+    padding: 70px 60px;
+    border-radius: var(--radius-xl);
+    text-align: center;
+    margin-top: 80px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.services-cta-final::before {
+    content: '🇰🇪';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 80px;
+    opacity: 0.1;
+}
+
+.services-cta-final .cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.services-cta-final h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.services-cta-final > .cta-content > p {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 35px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.cta-btn-assessment {
+    padding: 18px 36px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all var(--transition-normal);
+    background: var(--accent-color);
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(231, 111, 81, 0.3);
+}
+
+.cta-btn-assessment:hover {
+    background: #d65c3e;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(231, 111, 81, 0.4);
+}
+
+.cta-note {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.cta-note i {
+    color: var(--accent-color);
+}
+
+.cta-note a {
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.cta-note a:hover {
+    color: var(--accent-color);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: var(--dark-color);
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-logo .logo-image {
+    width: 40px;
+    height: 40px;
+}
+
+.footer-logo .logo-text {
+    font-size: 1.3rem;
+    color: white;
+}
+
+.footer-logo .logo-text span {
+    font-size: 0.5rem;
+    margin-top: -3px;
+}
+
+.footer-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-round);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all var(--transition-normal);
+}
+
+.social-link:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+    padding-left: 5px;
+}
+
+.contact-details li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+.contact-details i {
+    color: var(--secondary-color);
+    width: 20px;
+}
+
+.contact-details a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.copyright p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+}
+
+.footer-legal a:hover {
+    color: var(--secondary-color);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+    .services-hero-title {
+        font-size: 2.8rem;
+    }
+
+    .services-hero-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .service-details-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .service-card-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 12px 0;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        transition: left var(--transition-normal);
+        box-shadow: var(--shadow-lg);
+        z-index: 999;
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu a {
+        display: block;
+        padding: 15px 0;
+        width: 100%;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .cta-button {
+        display: none;
+    }
+    
+    .services-hero {
+        padding: 130px 0 60px;
+    }
+    
+    .services-hero-title {
+        font-size: 2.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .service-card-header {
+        padding: 30px 20px;
+    }
+
+    .service-card-body {
+        padding: 30px 20px;
+    }
+
+    .service-card-footer {
+        padding: 25px 20px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+    }
+
+    .services-cta-final {
+        padding: 50px 30px;
+    }
+
+    .services-cta-final h3 {
+        font-size: 2rem;
+    }
+
+    .float-whatsapp,
+    .float-chatbot {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+    }
+
+    .float-whatsapp {
+        left: 20px;
+    }
+
+    .float-chatbot {
+        right: 20px;
+    }
+
+    .scroll-to-top {
+        bottom: 90px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .services-hero-title {
+        font-size: 1.9rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .services-hero-cta {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .service-card-detailed {
+        margin-bottom: 40px;
+    }
+
+    .service-icon-large {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+
+    .cta-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-btn-assessment {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    .services-cta-final::before {
+        font-size: 60px;
+    }
+
+    .float-whatsapp,
+    .float-chatbot {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+    }
+
+    .float-whatsapp {
+        left: 15px;
+    }
+
+    .float-chatbot {
+        right: 15px;
+    }
+
+    .scroll-to-top {
+        bottom: 80px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .scroll-to-top i {
+        font-size: 1.1rem;
+    }
+}
+    </style>
 </head>
 <body>
-    <!-- HEADER (Same as index.html) -->
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -28,654 +1363,887 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html" class="active">Services</a></li>
                     <li><a href="audience.html">Who We Serve</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
 
             <a href="contact.html" class="cta-button">Get Started</a>
 
-            <button class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
-    <!-- SERVICES HERO SECTION -->
-<section class="services-hero">
-    <div class="container">
-        <div class="services-hero-content">
-            <div class="breadcrumb">
-                <a href="index.html"><i class="fas fa-home"></i>Home</a>
-                <i class="fas fa-chevron-right"></i>
-                <span>Services</span>
-            </div>
-            
-            <h1 class="services-hero-title">Comprehensive Support for <span>Health Entrepreneurs</span></h1>
-            
-            <p class="services-hero-subtitle">
-                From business systems to digital transformation, we provide end-to-end solutions that help you establish, systemize, and scale your healthcare venture.
-            </p>
-            
-            <div class="services-hero-stats">
-                <div class="hero-stat">
-                    <h3>5</h3>
-                    <p>Core Service Areas</p>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/254737535147" class="float-whatsapp" target="_blank" 
+       aria-label="Chat on WhatsApp" data-tooltip="Chat on WhatsApp">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+
+    <!-- Floating Chatbot Button -->
+    <button class="float-chatbot" id="openChatbot" 
+            aria-label="Chat with us" data-tooltip="Chat with us">
+        <i class="fas fa-comments fa-2x"></i>
+    </button>
+
+    <!-- Chat Modal -->
+    <div id="chatModal" class="chat-modal">
+        <div class="chat-modal-content">
+            <span class="chat-close" id="closeChat">&times;</span>
+            <h3>How Can We Help?</h3>
+            <p>Send us your question and we'll get back to you shortly.</p>
+            <form class="chat-form" id="chatForm">
+                <div class="form-group">
+                    <label for="chatName">Your Name</label>
+                    <input type="text" id="chatName" name="name" required>
                 </div>
-                <div class="hero-stat">
-                    <h3>100%</h3>
-                    <p>Tailored Solutions</p>
+                <div class="form-group">
+                    <label for="chatEmail">Your Email</label>
+                    <input type="email" id="chatEmail" name="email" required>
                 </div>
-                <div class="hero-stat">
-                    <h3>25+</h3>
-                    <p>Countries Served</p>
+                <div class="form-group">
+                    <label for="chatMessage">Your Question</label>
+                    <textarea id="chatMessage" name="message" required></textarea>
                 </div>
-            </div>
-            
-            <div class="services-hero-cta">
-                <a href="#service-categories" class="btn btn-primary">
-                    <i class="fas fa-arrow-down"></i> Explore Our Services
-                </a>
-                <a href="contact.html" class="btn btn-secondary">
-                    <i class="fas fa-calendar-check"></i> Book Free Consultation
-                </a>
-            </div>
-        </div>
-        
-        <div class="services-hero-image">
-            <!-- Sourced online image - African healthcare professionals with technology -->
-            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="African entrepreneurs collaborating on business strategy">
-            <div class="image-overlay"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
         </div>
     </div>
-</section>
 
-<!-- SERVICE CATEGORIES SECTION -->
-<section class="service-categories" id="service-categories">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Our <span>Core Services</span></h2>
-            <p class="section-subtitle">Comprehensive support systems designed specifically for healthcare entrepreneurs across Africa.</p>
-        </div>
-
-        <!-- Service 1: Business Systems & Operations -->
-        <div class="service-card-detailed" id="business-systems">
-            <div class="service-card-header">
-                <div class="service-title-section">
-                    <div class="service-icon-large">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div class="service-title-content">
-                        <h3>Business Systems & Operations</h3>
-                        <p class="service-tagline">Transform chaotic practices into streamlined, efficient operations</p>
-                    </div>
-                </div>
-                <!--<div class="service-price-section">
-                    <span class="price-label">Starting at</span>
-                    <div class="price-amount">$1,500</div>
-                </div>-->
-            </div>
-
-            <div class="service-card-body">
-                <div class="service-description-full">
-                    <p>We help healthcare professionals transform their practices from chaotic operations into well-organized, efficient systems that deliver consistent quality care while maximizing profitability. Our systematic approach ensures every aspect of your practice runs smoothly.</p>
-                </div>
-
-                <div class="service-details-grid">
-                    <div class="detail-column">
-                        <h4><i class="fas fa-user-md"></i> Who This Helps</h4>
-                        <ul class="service-audience">
-                            <li><i class="fas fa-check"></i> Medical doctors starting private practices</li>
-                            <li><i class="fas fa-check"></i> Nurses & clinical officers scaling services</li>
-                            <li><i class="fas fa-check"></i> Pharmacy owners optimizing operations</li>
-                            <li><i class="fas fa-check"></i> Diagnostic centers streamlining workflows</li>
-                            <li><i class="fas fa-check"></i> Wellness entrepreneurs systemizing delivery</li>
-                        </ul>
-                    </div>
-
-                    <div class="detail-column">
-                        <h4><i class="fas fa-tools"></i> Key Deliverables</h4>
-                        <div class="deliverables-list">
-                            <div class="deliverable-item">
-                                <i class="fas fa-clipboard-list"></i>
-                                <span>Custom SOP Development</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-project-diagram"></i>
-                                <span>Workflow Optimization</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-chart-pie"></i>
-                                <span>Performance Dashboards</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-tasks"></i>
-                                <span>Process Documentation</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-balance-scale"></i>
-                                <span>Quality Management Systems</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-benefits-box">
-                    <h4><i class="fas fa-star"></i> Benefits You'll Get</h4>
-                    <div class="benefits-tags">
-                        <span class="benefit-tag">40% Increase in Efficiency</span>
-                        <span class="benefit-tag">30% Cost Reduction</span>
-                        <span class="benefit-tag">Improved Patient Satisfaction</span>
-                        <span class="benefit-tag">Reduced Staff Burnout</span>
-                        <span class="benefit-tag">Scalable Operations</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-card-footer">
-                <div class="timeline-info">
-                    <i class="fas fa-clock"></i>
-                    <span>Typically delivered in <strong>4-6 weeks</strong></span>
-                </div>
-                <div class="action-buttons">
-                    <a href="contact.html?service=business-systems" class="btn-primary btn-icon">
-                        <i class="fas fa-calendar-check"></i> Book Free Assessment
-                    </a>
-                    <a href="#case-study-business" class="btn-secondary btn-icon">
-                        <i class="fas fa-file-alt"></i> View Case Study
-                    </a>
-                    <button class="btn-tertiary btn-icon" onclick="toggleServiceDetails('business-details')">
-                        <i class="fas fa-info-circle"></i> More Details
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service 2: Digital Transformation -->
-        <div class="service-card-detailed" id="digital-transformation">
-            <div class="service-card-header">
-                <div class="service-title-section">
-                    <div class="service-icon-large">
-                        <i class="fas fa-laptop-medical"></i>
-                    </div>
-                    <div class="service-title-content">
-                        <h3>Digital Transformation</h3>
-                        <p class="service-tagline">Modernize your practice with cutting-edge healthcare technology</p>
-                    </div>
-                </div>
-                <!--<div class="service-price-section">
-                    <span class="price-label">Starting at</span>
-                    <div class="price-amount">$2,500</div>
-                </div>-->
-            </div>
-
-            <div class="service-card-body">
-                <div class="service-description-full">
-                    <p>Transition from paper-based systems to digital excellence with our comprehensive digital transformation services. We implement technology solutions that enhance patient care, streamline operations, and future-proof your healthcare practice.</p>
-                </div>
-
-                <div class="service-details-grid">
-                    <div class="detail-column">
-                        <h4><i class="fas fa-user-md"></i> Who This Helps</h4>
-                        <ul class="service-audience">
-                            <li><i class="fas fa-check"></i> Practices implementing EHR systems</li>
-                            <li><i class="fas fa-check"></i> Clinics going paperless</li>
-                            <li><i class="fas fa-check"></i> Providers setting up telemedicine</li>
-                            <li><i class="fas fa-check"></i> Healthpreneurs digitizing services</li>
-                            <li><i class="fas fa-check"></i> Startups integrating health-tech</li>
-                        </ul>
-                    </div>
-
-                    <div class="detail-column">
-                        <h4><i class="fas fa-tools"></i> Key Deliverables</h4>
-                        <div class="deliverables-list">
-                            <div class="deliverable-item">
-                                <i class="fas fa-desktop"></i>
-                                <span>Electronic Health Records</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-video"></i>
-                                <span>Telemedicine Platform</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-robot"></i>
-                                <span>Process Automation</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Patient Portal Setup</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Data Security Systems</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-benefits-box">
-                    <h4><i class="fas fa-star"></i> Benefits You'll Get</h4>
-                    <div class="benefits-tags">
-                        <span class="benefit-tag">80% Paper Reduction</span>
-                        <span class="benefit-tag">50% Faster Processes</span>
-                        <span class="benefit-tag">Remote Care Capabilities</span>
-                        <span class="benefit-tag">Enhanced Data Security</span>
-                        <span class="benefit-tag">24/7 Patient Access</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-card-footer">
-                <div class="timeline-info">
-                    <i class="fas fa-clock"></i>
-                    <span>Implementation in <strong>6-8 weeks</strong></span>
-                </div>
-                <div class="action-buttons">
-                    <a href="contact.html?service=digital-transformation" class="btn-primary btn-icon">
-                        <i class="fas fa-calendar-check"></i> Schedule Tech Assessment
-                    </a>
-                    <a href="#case-study-digital" class="btn-secondary btn-icon">
-                        <i class="fas fa-play-circle"></i> Watch Demo
-                    </a>
-                    <button class="btn-tertiary btn-icon" onclick="toggleServiceDetails('digital-details')">
-                        <i class="fas fa-info-circle"></i> More Details
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service 3: Business Growth Support -->
-        <div class="service-card-detailed" id="business-growth">
-            <div class="service-card-header">
-                <div class="service-title-section">
-                    <div class="service-icon-large">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="service-title-content">
-                        <h3>Business Growth Support</h3>
-                        <p class="service-tagline">Scale your healthcare venture with proven growth strategies</p>
-                    </div>
-                </div>
-                <!--<div class="service-price-section">
-                    <span class="price-label">Starting at</span>
-                    <div class="price-amount">$1,800</div>
-                </div>-->
-            </div>
-
-            <div class="service-card-body">
-                <div class="service-description-full">
-                    <p>Accelerate your practice growth with data-driven strategies that increase revenue, expand your patient base, and position you as a market leader. We provide the roadmap and execution support to take your healthcare business to the next level.</p>
-                </div>
-
-                <div class="service-details-grid">
-                    <div class="detail-column">
-                        <h4><i class="fas fa-user-md"></i> Who This Helps</h4>
-                        <ul class="service-audience">
-                            <li><i class="fas fa-check"></i> Early-stage health startups scaling up</li>
-                            <li><i class="fas fa-check"></i> Established practices expanding reach</li>
-                            <li><i class="fas fa-check"></i> Entrepreneurs optimizing profitability</li>
-                            <li><i class="fas fa-check"></i> Providers acquiring more patients</li>
-                            <li><i class="fas fa-check"></i> Services expanding to new markets</li>
-                        </ul>
-                    </div>
-
-                    <div class="detail-column">
-                        <h4><i class="fas fa-tools"></i> Key Deliverables</h4>
-                        <div class="deliverables-list">
-                            <div class="deliverable-item">
-                                <i class="fas fa-money-bill-wave"></i>
-                                <span>Pricing Strategy Development</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-bullseye"></i>
-                                <span>Marketing Campaigns</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-expand-alt"></i>
-                                <span>Expansion Planning</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-analytics"></i>
-                                <span>Revenue Model Optimization</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Partnership Development</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-benefits-box">
-                    <h4><i class="fas fa-star"></i> Benefits You'll Get</h4>
-                    <div class="benefits-tags">
-                        <span class="benefit-tag">3x Revenue Growth</span>
-                        <span class="benefit-tag">Patient Base Expansion</span>
-                        <span class="benefit-tag">Market Leadership</span>
-                        <span class="benefit-tag">Competitive Advantage</span>
-                        <span class="benefit-tag">Sustainable Growth</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-card-footer">
-                <div class="timeline-info">
-                    <i class="fas fa-clock"></i>
-                    <span><strong>3-month</strong> growth program</span>
-                </div>
-                <div class="action-buttons">
-                    <a href="contact.html?service=business-growth" class="btn-primary btn-icon">
-                        <i class="fas fa-chart-line"></i> Get Growth Audit
-                    </a>
-                    <a href="#case-study-growth" class="btn-secondary btn-icon">
-                        <i class="fas fa-chart-bar"></i> See Results
-                    </a>
-                    <button class="btn-tertiary btn-icon" onclick="toggleServiceDetails('growth-details')">
-                        <i class="fas fa-info-circle"></i> More Details
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service 4: Capacity Building & Mentorship -->
-        <div class="service-card-detailed" id="capacity-building">
-            <div class="service-card-header">
-                <div class="service-title-section">
-                    <div class="service-icon-large">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="service-title-content">
-                        <h3>Capacity Building & Mentorship</h3>
-                        <p class="service-tagline">Develop entrepreneurial skills and leadership capabilities</p>
-                    </div>
-                </div>
-                <!--<div class="service-price-section">
-                    <span class="price-label">Starting at</span>
-                    <div class="price-amount">$1,200</div>
-                </div>-->
-            </div>
-
-            <div class="service-card-body">
-                <div class="service-description-full">
-                    <p>Transition from healthcare professional to successful entrepreneur with our personalized coaching and mentorship programs. We help you develop the mindset, skills, and confidence needed to build and lead a thriving healthcare business.</p>
-                </div>
-
-                <div class="service-details-grid">
-                    <div class="detail-column">
-                        <h4><i class="fas fa-user-md"></i> Who This Helps</h4>
-                        <ul class="service-audience">
-                            <li><i class="fas fa-check"></i> New healthpreneurs needing guidance</li>
-                            <li><i class="fas fa-check"></i> Professionals developing business skills</li>
-                            <li><i class="fas fa-check"></i> CHVs building community leadership</li>
-                            <li><i class="fas fa-check"></i> Mental health professionals growing practices</li>
-                            <li><i class="fas fa-check"></i> Innovators developing health solutions</li>
-                        </ul>
-                    </div>
-
-                    <div class="detail-column">
-                        <h4><i class="fas fa-tools"></i> Key Deliverables</h4>
-                        <div class="deliverables-list">
-                            <div class="deliverable-item">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                                <span>One-on-One Coaching</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-certificate"></i>
-                                <span>Skill Development Curriculum</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Peer Networking Access</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-handshake"></i>
-                                <span>Mentorship Sessions</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-road"></i>
-                                <span>Career Path Planning</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-benefits-box">
-                    <h4><i class="fas fa-star"></i> Benefits You'll Get</h4>
-                    <div class="benefits-tags">
-                        <span class="benefit-tag">Confidence Building</span>
-                        <span class="benefit-tag">Leadership Skills</span>
-                        <span class="benefit-tag">Business Acumen</span>
-                        <span class="benefit-tag">Peer Support Network</span>
-                        <span class="benefit-tag">Career Advancement</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-card-footer">
-                <div class="timeline-info">
-                    <i class="fas fa-clock"></i>
-                    <span><strong>3-6 month</strong> mentorship program</span>
-                </div>
-                <div class="action-buttons">
-                    <a href="contact.html?service=capacity-building" class="btn-primary btn-icon">
-                        <i class="fas fa-handshake"></i> Meet a Mentor
-                    </a>
-                    <a href="#testimonials-mentorship" class="btn-secondary btn-icon">
-                        <i class="fas fa-star"></i> Read Testimonials
-                    </a>
-                    <button class="btn-tertiary btn-icon" onclick="toggleServiceDetails('mentorship-details')">
-                        <i class="fas fa-info-circle"></i> More Details
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service 5: Branding & Digital Setup -->
-        <div class="service-card-detailed" id="branding">
-            <div class="service-card-header">
-                <div class="service-title-section">
-                    <div class="service-icon-large">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <div class="service-title-content">
-                        <h3>Branding & Digital Setup</h3>
-                        <p class="service-tagline">Establish a compelling professional brand and online presence</p>
-                    </div>
-                </div>
-                <!--<div class="service-price-section">
-                    <span class="price-label">Starting at</span>
-                    <div class="price-amount">$2,000</div>
-                </div>-->
-            </div>
-
-            <div class="service-card-body">
-                <div class="service-description-full">
-                    <p>Build a powerful brand identity and digital presence that builds trust with patients and differentiates you in the competitive healthcare market. From logo design to complete website development, we create professional assets that reflect your expertise.</p>
-                </div>
-
-                <div class="service-details-grid">
-                    <div class="detail-column">
-                        <h4><i class="fas fa-user-md"></i> Who This Helps</h4>
-                        <ul class="service-audience">
-                            <li><i class="fas fa-check"></i> New practices creating brand identity</li>
-                            <li><i class="fas fa-check"></i> Professionals establishing online presence</li>
-                            <li><i class="fas fa-check"></i> Pharmacy owners upgrading storefronts</li>
-                            <li><i class="fas fa-check"></i> Nutritionists developing wellness brands</li>
-                            <li><i class="fas fa-check"></i> Fitness coaches building communities</li>
-                        </ul>
-                    </div>
-
-                    <div class="detail-column">
-                        <h4><i class="fas fa-tools"></i> Key Deliverables</h4>
-                        <div class="deliverables-list">
-                            <div class="deliverable-item">
-                                <i class="fas fa-paint-brush"></i>
-                                <span>Complete Brand Identity</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-laptop-code"></i>
-                                <span>Professional Website</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-share-alt"></i>
-                                <span>Social Media Setup</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>Marketing Materials</span>
-                            </div>
-                            <div class="deliverable-item">
-                                <i class="fas fa-search"></i>
-                                <span>SEO Optimization</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-benefits-box">
-                    <h4><i class="fas fa-star"></i> Benefits You'll Get</h4>
-                    <div class="benefits-tags">
-                        <span class="benefit-tag">Professional Image</span>
-                        <span class="benefit-tag">Increased Visibility</span>
-                        <span class="benefit-tag">Patient Trust Building</span>
-                        <span class="benefit-tag">Competitive Differentiation</span>
-                        <span class="benefit-tag">Online Appointment Booking</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-card-footer">
-                <div class="timeline-info">
-                    <i class="fas fa-clock"></i>
-                    <span>Delivered in <strong>4-5 weeks</strong></span>
-                </div>
-                <div class="action-buttons">
-                    <a href="contact.html?service=branding" class="btn-primary btn-icon">
-                        <i class="fas fa-eye"></i> Get Brand Audit
-                    </a>
-                    <a href="#portfolio" class="btn-secondary btn-icon">
-                        <i class="fas fa-images"></i> View Portfolio
-                    </a>
-                    <button class="btn-tertiary btn-icon" onclick="toggleServiceDetails('branding-details')">
-                        <i class="fas fa-info-circle"></i> More Details
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Services CTA -->
-        <div class="services-cta-final">
-            <div class="cta-content">
-                <h3>Not Sure Which Service You Need?</h3>
-                <p>Take our 2-minute assessment to get personalized recommendations</p>
-                <div class="cta-actions">
-                    <a href="assessment.html" class="cta-btn-assessment">
-                        <i class="fas fa-clipboard-list"></i> Take Assessment
-                    </a>
-                    <a href="contact.html" class="cta-btn-consultation">
-                        <i class="fas fa-video"></i> Book   Consultation
-                    </a>
-                </div>
-                <p class="cta-note"><i class="fas fa-phone-alt"></i> Prefer to talk? Call us: <a href="tel:+254712345678">+254 712 345 678</a></p>
-            </div>
-        </div>
-    </div>
-</section>
-        <!-- FOOTER SECTION -->
-        <footer class="footer">
+    <main>
+        <!-- SERVICES HERO SECTION -->
+        <section class="services-hero">
             <div class="container">
-                <!-- Main Footer Content -->
-                <div class="footer-main">
-                    <!-- Company Info -->
-                    <div class="footer-col company-info">
-                        <a href="index.html" class="footer-logo">
-                            <img src="./assets/img/logo.jpeg" alt="Afyacode Ventures Logo" class="logo-image">
-                            <div class="logo-text">
-                                AFYACODE<span>VENTURES</span>
-                            </div>
-                        </a>
-                        <p class="footer-description">
-                            Empowering health entrepreneurs across Africa with strategic support, digital transformation, and capacity-building programs.
-                        </p>
-                        <div class="social-links">
-                            <a href="#" class="social-link" aria-label="Facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="YouTube">
-                                <i class="fab fa-youtube"></i>
-                            </a>
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Services</span>
+                </div>
+                
+                <!-- Kenya Badge -->
+                <div class="kenya-badge">
+                    <span>🇰🇪</span>
+                    <span>Serving Kenya's Health Entrepreneurs</span>
+                </div>
+                
+                <!-- Hero Title -->
+                <h1 class="services-hero-title">
+                    Comprehensive Support for <span class="kenya-highlight">Kenya's</span> Health Entrepreneurs
+                </h1>
+                
+                <!-- Hero Subtitle -->
+                <p class="services-hero-subtitle">
+                    From business systems to digital transformation, we provide end-to-end solutions tailored for Kenya's healthcare landscape to help you establish, systemize, and scale your healthcare venture.
+                </p>
+                
+                <!-- Hero Stats -->
+                <div class="services-hero-stats">
+                    <div class="hero-stat">
+                        <h3>6</h3>
+                        <p>Core Service Areas</p>
+                    </div>
+                    <div class="hero-stat">
+                        <h3>100%</h3>
+                        <p>Kenya Focused</p>
+                    </div>
+                </div>
+                
+                <!-- Hero CTA -->
+                <div class="services-hero-cta">
+                    <a href="#service-categories" class="btn btn-primary">
+                        <i class="fas fa-arrow-down"></i> Explore Our Services
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-calendar-check"></i> Book Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICE CATEGORIES SECTION -->
+        <section class="service-categories" id="service-categories">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">
+                        <i class="fas fa-briefcase"></i> Our Offerings
+                    </span>
+                    <h2 class="section-title">Our <span class="highlight">Core Services</span></h2>
+                    <p class="section-subtitle">Comprehensive support systems designed specifically for healthcare entrepreneurs across Kenya.</p>
+                </div>
+
+                <!-- Service 1: Business Systems & Operations -->
+                <div class="service-card-detailed" id="business-systems">
+                    <div class="service-card-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="service-title-content">
+                            <h3>Business Systems & Operations</h3>
+                            <p class="service-tagline">Transform chaotic practices into streamlined, efficient operations</p>
                         </div>
                     </div>
 
-                    <!-- Quick Links -->
-                    <div class="footer-col">
-                        <h3 class="footer-title">Quick Links</h3>
-                        <ul class="footer-links">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="services.html">Our Services</a></li>
-                            <li><a href="audience.html">Who We Serve</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                        </ul>
+                    <div class="service-card-body">
+                        <div class="service-description-full">
+                            <p>We help healthcare professionals across Kenya transform their practices from chaotic operations into well-organized, efficient systems that deliver consistent quality care while maximizing profitability. Our systematic approach ensures every aspect of your practice runs smoothly.</p>
+                        </div>
+
+                        <div class="service-details-grid">
+                            <div class="detail-column">
+                                <h4><i class="fas fa-user-md"></i> Who This Helps</h4>
+                                <ul class="service-audience">
+                                    <li><i class="fas fa-check"></i> Medical doctors starting private practices</li>
+                                    <li><i class="fas fa-check"></i> Nurses & clinical officers scaling services</li>
+                                    <li><i class="fas fa-check"></i> Pharmacy owners optimizing operations</li>
+                                    <li><i class="fas fa-check"></i> Diagnostic centers streamlining workflows</li>
+                                    <li><i class="fas fa-check"></i> Wellness entrepreneurs systemizing delivery</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-column">
+                                <h4><i class="fas fa-tools"></i> Key Deliverables</h4>
+                                <div class="deliverables-list">
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        <span>Custom SOP Development</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-project-diagram"></i>
+                                        <span>Workflow Optimization</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-chart-pie"></i>
+                                        <span>Performance Dashboards</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-tasks"></i>
+                                        <span>Process Documentation</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-balance-scale"></i>
+                                        <span>Quality Management Systems</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-benefits-box">
+                            <h4><i class="fas fa-star"></i> Benefits You'll Get</h4>
+                            <div class="benefits-tags">
+                                <span class="benefit-tag">40% Increase in Efficiency</span>
+                                <span class="benefit-tag">30% Cost Reduction</span>
+                                <span class="benefit-tag">Improved Patient Satisfaction</span>
+                                <span class="benefit-tag">Reduced Staff Burnout</span>
+                                <span class="benefit-tag">Scalable Operations</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Services -->
-                    <div class="footer-col">
-                        <h3 class="footer-title">Our Services</h3>
-                        <ul class="footer-links">
-                            <li><a href="services.html#business-systems">Business Systems & Operations</a></li>
-                            <li><a href="services.html#digital-transformation">Digital Transformation</a></li>
-                            <li><a href="services.html#business-growth">Business Growth Support</a></li>
-                            <li><a href="services.html#capacity-building">Capacity Building & Mentorship</a></li>
-                            <li><a href="services.html#branding">Branding & Digital Setup</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Contact Info -->
-                    <div class="footer-col contact-info">
-                        <h3 class="footer-title">Contact Us</h3>
-                        <ul class="contact-details">
-                            <li>
-                                <i class="fas fa-envelope"></i>
-                                <a href="mailto:hello@afyacode.com">hello@afyacode.com</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-phone"></i>
-                                <a href="tel:+254712345678">+254 712 345 678</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Nairobi, Kenya<br>Across Africa</span>
-                            </li>
-                        </ul>
+                    <div class="service-card-footer">
+                        <div class="timeline-info">
+                            <i class="fas fa-clock"></i>
+                            <span>Typically delivered in <strong>4-6 weeks</strong></span>
+                        </div>
+                        <div class="action-buttons">
+                            <!-- <a href="contact.html?service=business-systems" class="btn btn-primary">
+                                <i class="fas fa-calendar-check"></i> Book Free Assessment
+                            </a>
+                            <a href="#case-study-business" class="btn btn-secondary">
+                                <i class="fas fa-file-alt"></i> View Case Study
+                            </a>
+                            <button class="btn btn-outline" onclick="toggleServiceDetails('business-details')">
+                                <i class="fas fa-info-circle"></i> More Details
+                            </button> -->
+                        </div>
                     </div>
                 </div>
 
-                <!-- Footer Bottom -->
-                <div class="footer-bottom">
-                    <div class="copyright">
-                        <p>&copy; <span id="currentYear"></span> Afyacode Ventures. All rights reserved.</p>
+                <!-- Service 2: Digital Transformation -->
+                <div class="service-card-detailed" id="digital-transformation">
+                    <div class="service-card-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-laptop-medical"></i>
+                        </div>
+                        <div class="service-title-content">
+                            <h3>Digital Transformation</h3>
+                            <p class="service-tagline">Modernize your practice with cutting-edge healthcare technology</p>
+                        </div>
                     </div>
-                    <div class="footer-legal">
-                        <a href="privacy.html">Privacy Policy</a>
-                        <a href="terms.html">Terms of Service</a>
-                        <a href="cookies.html">Cookie Policy</a>
+
+                    <div class="service-card-body">
+                        <div class="service-description-full">
+                            <p>Transition from paper-based systems to digital excellence with our comprehensive digital transformation services tailored for Kenya's healthcare environment. We implement technology solutions that enhance patient care, streamline operations, and future-proof your healthcare practice.</p>
+                        </div>
+
+                        <div class="service-details-grid">
+                            <div class="detail-column">
+                                <h4><i class="fas fa-user-md"></i> Who This Helps</h4>
+                                <ul class="service-audience">
+                                    <li><i class="fas fa-check"></i> Practices implementing EHR systems</li>
+                                    <li><i class="fas fa-check"></i> Clinics going paperless</li>
+                                    <li><i class="fas fa-check"></i> Providers setting up telemedicine</li>
+                                    <li><i class="fas fa-check"></i> Healthpreneurs digitizing services</li>
+                                    <li><i class="fas fa-check"></i> Startups integrating health-tech</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-column">
+                                <h4><i class="fas fa-tools"></i> Key Deliverables</h4>
+                                <div class="deliverables-list">
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-desktop"></i>
+                                        <span>Electronic Health Records</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-video"></i>
+                                        <span>Telemedicine Platform</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-robot"></i>
+                                        <span>Process Automation</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>Patient Portal Setup</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Data Security Systems</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-benefits-box">
+                            <h4><i class="fas fa-star"></i> Benefits You'll Get</h4>
+                            <div class="benefits-tags">
+                                <span class="benefit-tag">80% Paper Reduction</span>
+                                <span class="benefit-tag">50% Faster Processes</span>
+                                <span class="benefit-tag">Remote Care Capabilities</span>
+                                <span class="benefit-tag">Enhanced Data Security</span>
+                                <span class="benefit-tag">24/7 Patient Access</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card-footer">
+                        <div class="timeline-info">
+                            <i class="fas fa-clock"></i>
+                            <span>Implementation in <strong>6-8 weeks</strong></span>
+                        </div>
+                        <div class="action-buttons">
+                            <!-- <a href="contact.html?service=digital-transformation" class="btn btn-primary">
+                                <i class="fas fa-calendar-check"></i> Schedule Tech Assessment
+                            </a>
+                            <a href="#case-study-digital" class="btn btn-secondary">
+                                <i class="fas fa-play-circle"></i> Watch Demo
+                            </a>
+                            <button class="btn btn-outline" onclick="toggleServiceDetails('digital-details')">
+                                <i class="fas fa-info-circle"></i> More Details
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Business Growth Support -->
+                <div class="service-card-detailed" id="business-growth">
+                    <div class="service-card-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="service-title-content">
+                            <h3>Business Support Services</h3>
+                            <p class="service-tagline">Comprehensive business development for healthcare ventures</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card-body">
+                        <div class="service-description-full">
+                            <p>Transform your healthcare venture with end-to-end business support tailored for Kenya's market. From foundational training to growth strategy and investor readiness, we provide the tools, knowledge, and connections to build sustainable and scalable healthcare businesses.</p>
+                        </div>
+
+                        <div class="service-details-grid">
+                            <div class="detail-column">
+                                <h4><i class="fas fa-user-md"></i> Core Services</h4>
+                                <ul class="service-audience">
+                                    <li><i class="fas fa-check"></i> Business Fundamentals Training</li>
+                                    <li><i class="fas fa-check"></i> Financial Management Support</li>
+                                    <li><i class="fas fa-check"></i> Strategy Development</li>
+                                    <li><i class="fas fa-check"></i> Go-to-Market Strategy Design</li>
+                                    <li><i class="fas fa-check"></i> Customer Experience Optimization</li>
+                                    <li><i class="fas fa-check"></i> Digital Health Adoption Support</li>
+                                    <li><i class="fas fa-check"></i> Operations Setup & SOP Development</li>
+                                    <li><i class="fas fa-check"></i> Mentorship & Expert Advisory</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-column">
+                                <h4><i class="fas fa-tools"></i> Advanced Support</h4>
+                                <div class="deliverables-list">
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>Capacity Building Programs</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-stethoscope"></i>
+                                        <span>Business Diagnostics & Reviews</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                        <span>Fundraising Readiness</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-users"></i>
+                                        <span>Investor Pitch Support</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-handshake"></i>
+                                        <span>Market Access & Partnerships</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>Accelerator-Style Programs</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-benefits-box">
+                            <h4><i class="fas fa-star"></i> Strategic Benefits</h4>
+                            <div class="benefits-tags">
+                                <span class="benefit-tag">Financial Literacy</span>
+                                <span class="benefit-tag">Scalable Operations</span>
+                                <span class="benefit-tag">Investor Ready</span>
+                                <span class="benefit-tag">Market Expansion</span>
+                                <span class="benefit-tag">Sustainable Growth</span>
+                                <span class="benefit-tag">Expert Network</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card-footer">
+                        <div class="timeline-info">
+                            <i class="fas fa-clock"></i>
+                            <span><strong>Flexible</strong> program durations available</span>
+                        </div>
+                        <div class="action-buttons">
+                            <!-- <a href="contact.html?service=business-growth" class="btn btn-primary">
+                                <i class="fas fa-briefcase"></i> Get Business Audit
+                            </a>
+                            <a href="#case-study-growth" class="btn btn-secondary">
+                                <i class="fas fa-chart-bar"></i> See Success Stories
+                            </a>
+                            <button class="btn btn-outline" onclick="toggleServiceDetails('growth-details')">
+                                <i class="fas fa-info-circle"></i> Program Details
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4: Capacity Building & Mentorship -->
+                <div class="service-card-detailed" id="capacity-building">
+                    <div class="service-card-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="service-title-content">
+                            <h3>Capacity Building & Mentorship</h3>
+                            <p class="service-tagline">Develop entrepreneurial skills and leadership capabilities</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card-body">
+                        <div class="service-description-full">
+                            <p>Transition from healthcare professional to successful entrepreneur with our personalized coaching and mentorship programs designed for Kenya's healthcare landscape. We help you develop the mindset, skills, and confidence needed to build and lead a thriving healthcare business.</p>
+                        </div>
+
+                        <div class="service-details-grid">
+                            <div class="detail-column">
+                                <h4><i class="fas fa-user-md"></i> Who This Helps</h4>
+                                <ul class="service-audience">
+                                    <li><i class="fas fa-check"></i> New healthpreneurs needing guidance</li>
+                                    <li><i class="fas fa-check"></i> Professionals developing business skills</li>
+                                    <li><i class="fas fa-check"></i> CHVs building community leadership</li>
+                                    <li><i class="fas fa-check"></i> Mental health professionals growing practices</li>
+                                    <li><i class="fas fa-check"></i> Innovators developing health solutions</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-column">
+                                <h4><i class="fas fa-tools"></i> Key Deliverables</h4>
+                                <div class="deliverables-list">
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                        <span>One-on-One Coaching</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-certificate"></i>
+                                        <span>Skill Development Curriculum</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-network-wired"></i>
+                                        <span>Peer Networking Access</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-handshake"></i>
+                                        <span>Mentorship Sessions</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-road"></i>
+                                        <span>Career Path Planning</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-benefits-box">
+                            <h4><i class="fas fa-star"></i> Benefits You'll Get</h4>
+                            <div class="benefits-tags">
+                                <span class="benefit-tag">Confidence Building</span>
+                                <span class="benefit-tag">Leadership Skills</span>
+                                <span class="benefit-tag">Business Acumen</span>
+                                <span class="benefit-tag">Peer Support Network</span>
+                                <span class="benefit-tag">Career Advancement</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card-footer">
+                        <div class="timeline-info">
+                            <i class="fas fa-clock"></i>
+                            <span><strong>3-6 month</strong> mentorship program</span>
+                        </div>
+                        <div class="action-buttons">
+                            <!-- <a href="contact.html?service=capacity-building" class="btn btn-primary">
+                                <i class="fas fa-handshake"></i> Meet a Mentor
+                            </a>
+                            <a href="#testimonials-mentorship" class="btn btn-secondary">
+                                <i class="fas fa-star"></i> Read Testimonials
+                            </a>
+                            <button class="btn btn-outline" onclick="toggleServiceDetails('mentorship-details')">
+                                <i class="fas fa-info-circle"></i> More Details
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5: Branding & Digital Setup -->
+                <div class="service-card-detailed" id="branding">
+                    <div class="service-card-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="service-title-content">
+                            <h3>Branding & Digital Setup</h3>
+                            <p class="service-tagline">Establish a compelling professional brand and online presence</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card-body">
+                        <div class="service-description-full">
+                            <p>Build a powerful brand identity and digital presence tailored for Kenya's market that builds trust with patients and differentiates you in the competitive healthcare landscape. From logo design to complete website development, we create professional assets that reflect your expertise.</p>
+                        </div>
+
+                        <div class="service-details-grid">
+                            <div class="detail-column">
+                                <h4><i class="fas fa-user-md"></i> Who This Helps</h4>
+                                <ul class="service-audience">
+                                    <li><i class="fas fa-check"></i> New practices creating brand identity</li>
+                                    <li><i class="fas fa-check"></i> Professionals establishing online presence</li>
+                                    <li><i class="fas fa-check"></i> Pharmacy owners upgrading storefronts</li>
+                                    <li><i class="fas fa-check"></i> Nutritionists developing wellness brands</li>
+                                    <li><i class="fas fa-check"></i> Fitness coaches building communities</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-column">
+                                <h4><i class="fas fa-tools"></i> Key Deliverables</h4>
+                                <div class="deliverables-list">
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-paint-brush"></i>
+                                        <span>Complete Brand Identity</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <span>Professional Website</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-share-alt"></i>
+                                        <span>Social Media Setup</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>Marketing Materials</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-search"></i>
+                                        <span>SEO Optimization</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-benefits-box">
+                            <h4><i class="fas fa-star"></i> Benefits You'll Get</h4>
+                            <div class="benefits-tags">
+                                <span class="benefit-tag">Professional Image</span>
+                                <span class="benefit-tag">Increased Visibility</span>
+                                <span class="benefit-tag">Patient Trust Building</span>
+                                <span class="benefit-tag">Competitive Differentiation</span>
+                                <span class="benefit-tag">Online Appointment Booking</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card-footer">
+                        <div class="timeline-info">
+                            <i class="fas fa-clock"></i>
+                            <span>Delivered in <strong>4-5 weeks</strong></span>
+                        </div>
+                        <div class="action-buttons">
+                            <!-- <a href="contact.html?service=branding" class="btn btn-primary">
+                                <i class="fas fa-eye"></i> Get Brand Audit
+                            </a>
+                            <a href="#portfolio" class="btn btn-secondary">
+                                <i class="fas fa-images"></i> View Portfolio
+                            </a>
+                            <button class="btn btn-outline" onclick="toggleServiceDetails('branding-details')">
+                                <i class="fas fa-info-circle"></i> More Details
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6: Networking & Capacity Building Events -->
+                <div class="service-card-detailed" id="networking-events">
+                    <div class="service-card-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="service-title-content">
+                            <h3>Networking & Capacity Building Events</h3>
+                            <p class="service-tagline">Connect, learn, and grow with Kenya's health entrepreneurship community</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card-body">
+                        <div class="service-description-full">
+                            <p>Join our vibrant community of health entrepreneurs across Kenya through exclusive networking events, workshops, and capacity-building sessions. We create platforms for knowledge sharing, peer learning, and valuable connections that accelerate your entrepreneurial journey.</p>
+                        </div>
+
+                        <div class="service-details-grid">
+                            <div class="detail-column">
+                                <h4><i class="fas fa-user-md"></i> Who This Helps</h4>
+                                <ul class="service-audience">
+                                    <li><i class="fas fa-check"></i> Healthcare entrepreneurs seeking peer connections</li>
+                                    <li><i class="fas fa-check"></i> Professionals looking to expand their network</li>
+                                    <li><i class="fas fa-check"></i> Innovators wanting to learn from industry leaders</li>
+                                    <li><i class="fas fa-check"></i> Practitioners exploring collaboration opportunities</li>
+                                    <li><i class="fas fa-check"></i> Startups seeking mentorship and partnerships</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-column">
+                                <h4><i class="fas fa-tools"></i> Key Deliverables</h4>
+                                <div class="deliverables-list">
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Monthly Networking Meetups</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-chalkboard"></i>
+                                        <span>Skill-Building Workshops</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-microphone"></i>
+                                        <span>Expert Speaker Sessions</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-users-cog"></i>
+                                        <span>Peer Learning Circles</span>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <i class="fas fa-trophy"></i>
+                                        <span>Pitch Competitions</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-benefits-box">
+                            <h4><i class="fas fa-star"></i> Benefits You'll Get</h4>
+                            <div class="benefits-tags">
+                                <span class="benefit-tag">Expanded Professional Network</span>
+                                <span class="benefit-tag">Industry Insights</span>
+                                <span class="benefit-tag">Collaboration Opportunities</span>
+                                <span class="benefit-tag">Peer Support</span>
+                                <span class="benefit-tag">Continuous Learning</span>
+                                <span class="benefit-tag">Community Building</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card-footer">
+                        <div class="timeline-info">
+                            <i class="fas fa-clock"></i>
+                            <span><strong>Monthly</strong> events & quarterly workshops</span>
+                        </div>
+                        <div class="action-buttons">
+                            <!-- <a href="contact.html?service=networking-events" class="btn btn-primary">
+                                <i class="fas fa-calendar-check"></i> View Upcoming Events
+                            </a>
+                            <a href="#past-events" class="btn btn-secondary">
+                                <i class="fas fa-images"></i> Past Events Gallery
+                            </a>
+                            <button class="btn btn-outline" onclick="toggleServiceDetails('events-details')">
+                                <i class="fas fa-info-circle"></i> More Details
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services CTA -->
+                <div class="services-cta-final">
+                    <div class="cta-content">
+                        <h3>Ready to Transform Your Healthcare Business?</h3>
+                        <p>Let's discuss how our services can help you achieve your goals in Kenya's healthcare market</p>
+                        <div class="cta-actions">
+                            <a href="contact.html" class="cta-btn-assessment">
+                                <i class="fas fa-phone-alt"></i> Contact Us Today
+                            </a>
+                        </div>
+                        <p class="cta-note"><i class="fas fa-phone-alt"></i> Prefer to talk? Call us: <a href="tel:+254737535147">+254 737 535 147</a></p>
                     </div>
                 </div>
             </div>
-        </footer>
+        </section>
     </main>
 
-    <!-- Link to external JavaScript -->
-    <script src="./assets/js/script.js"></script>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="./assets/img/logo.jpeg" alt="Afyacode Ventures Logo" class="logo-image">
+                        <div class="logo-text">
+                            AFYACODE <span>VENTURES</span>
+                        </div>
+                    </a>
+                    <p class="footer-description">
+                        Empowering health entrepreneurs across Kenya with strategic support, digital transformation, and capacity-building programs.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="audience.html">Who We Serve</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#business-systems">Business Systems</a></li>
+                        <li><a href="services.html#digital-transformation">Digital Transformation</a></li>
+                        <li><a href="services.html#business-growth">Business Growth</a></li>
+                        <li><a href="services.html#capacity-building">Mentorship</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="/cdn-cgi/l/email-protection#fa929f969695ba9b9c839b99959e9fd4999597"><span class="__cf_email__" data-cfemail="bcd4d9d0d0d3fcdddac5dddfd3d8d992dfd3d1">[email&#160;protected]</span></a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+254737535147">+254 737 535 147</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nairobi, Kenya</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; <span id="currentYear"></span> Afyacode Ventures. All rights reserved.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+                const icon = hamburger.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.padding = '10px 0';
+                    header.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.padding = '15px 0';
+                    header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
+                }
+            });
+            
+            // Chatbot Modal Functionality
+            const openChatbotBtn = document.getElementById('openChatbot');
+            const closeChatBtn = document.getElementById('closeChat');
+            const chatModal = document.getElementById('chatModal');
+            const chatForm = document.getElementById('chatForm');
+            
+            if (openChatbotBtn) {
+                openChatbotBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    chatModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            
+            if (closeChatBtn) {
+                closeChatBtn.addEventListener('click', function() {
+                    chatModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            
+            if (chatModal) {
+                chatModal.addEventListener('click', function(e) {
+                    if (e.target === chatModal) {
+                        chatModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && chatModal.classList.contains('active')) {
+                    chatModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            if (chatForm) {
+                chatForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('chatName').value;
+                    const email = document.getElementById('chatEmail').value;
+                    const message = document.getElementById('chatMessage').value;
+                    
+                    if (!name || !email || !message) {
+                        alert('Please fill in all fields.');
+                        return;
+                    }
+                    
+                    alert(`Thank you, ${name}! Your message has been sent. We'll get back to you shortly at ${email}.`);
+                    
+                    chatForm.reset();
+                    chatModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            // Scroll to Top Button
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            // Show/hide scroll to top button
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
+            });
+            
+            // Scroll to top when button is clicked
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
